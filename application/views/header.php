@@ -96,7 +96,16 @@
 										</ul>
 								</li>
 							</li>
-							<li><a href="<?php echo site_url('Welcome/create/')?>">Input</a></li>
+							<li class="">
+								<li class="has-dropdown">
+									<a href="<?php echo site_url('Welcome/home/')?>">Input</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/about/')?>">About</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/contact/')?>">Contact</a></li>
+										</ul>
+								</li>
+							</li>
+							
 							<li><a href="<?php echo site_url('Welcome/read/')?>">View</a></li>
 							<li><a href="<?php echo site_url('Welcome/table/')?>">Table</a></li>
 						</ul>

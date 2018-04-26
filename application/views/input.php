@@ -16,27 +16,51 @@
 	<div class="gtco-section gtco-gray-bg">
 		<div class="gtco-container">
 			<div class="row">
-				<div class="col-md-12"><form>
-
-						<div class="row form-group">
-							<div class="col-md-1"></div>
-							<div class="col-md-10">
-								<p><label class="sr-only" for="email">Email</label>
-								<input type="text" id="email" class="form-control" placeholder="Your email address"></p>
-							
-								<p><label class="sr-only" for="subject">Subject</label>
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message"></p>
-							
-								<p><label class="sr-only" for="message">Message</label>
-								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write us something"></textarea></p>
-								<div class="form-group">
-							<input type="submit" value="Send Message" class="btn btn-primary">
-						</div>
-							</div>
-							<div class="col-md-1"></div>
-						</div>
-						
-					</form>		
+				<div class="col-md-12">
+					<?php echo form_open_multipart('Welcome/create_atasan')?>
+              			<div class="row">
+                			<div class="col-md-6">
+                  				<div class="form-group">
+                    				<input class="form-control" type="text" name="Nama" placeholder="Nama">
+                  				</div>
+                  				<div class="form-group">
+                    				<input class="form-control" type="text" name="Jenis" placeholder="Jenis">
+                  				</div>
+                  				<div class="form-group">
+                    				<input class="form-control" type="text" name="Merk" placeholder="Merk">
+                  				</div>
+                  				<div class="form-group">
+                    				<select name="Ukuran" class="form-control">
+				                    	<option hidden="" selected="">Pilih</option>
+				                    	<option value="S">S</option>
+				                    	<option value="M">M</option>
+				                    	<option value="L">L</option>
+				                    	<option value="XL">XL</option>
+				                    	<option value="XXL">XXL</option>
+                    				</select>
+                  				</div>
+                			</div>
+	                		<div class="col-md-6">
+	                			<div class="form-group">
+	                    			<input class="form-control" name="Tgl_masuk" type="date" placeholder="Tgl_masuk">
+	                  			</div>
+	                  			<div class="form-group">
+	                    			<input class="form-control" name="Harga" type="text" placeholder="Harga">
+	                  			</div>
+	                  			<div class="form-group">
+	                    			<input class="form-control" name="Jumlah" type="text" placeholder="Jumlah">
+	                  			</div>
+	                  			<div class="form-group">
+	                    			<input class="form-control" name="Gambar" type="file">
+	                  			</div>
+	                		</div>
+	                		<div class="clearfix"></div>
+	                		<div class="col-lg-12 text-center">
+	                  			<div id="success"></div>
+	                  			<input type="submit" class="btn btn-primary btn-xl text-uppercase" name="btnSubmit" value="Simpan"/>
+	                		</div>
+              			</div>
+            		</form>		
 				
 				</div>
 

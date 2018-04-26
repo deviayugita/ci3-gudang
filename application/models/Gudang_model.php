@@ -20,10 +20,12 @@ class Gudang_model extends CI_Model {
 
 
 // - - - - - - insert - - - - -
-	public function insert_atasan(){
-	}
-	public function insert_bawahan(){
-	}
+	public function insert_atasan($data){
+			$this->db->insert('atasan', $data);
+		}
+	public function insert_bawahan($data){
+			$this->db->insert('bawahan', $data);
+		}
 
 
 // - - - - - - update - - - - -
