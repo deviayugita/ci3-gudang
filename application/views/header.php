@@ -98,15 +98,24 @@
 							</li>
 							<li class="">
 								<li class="has-dropdown">
-									<a href="<?php echo site_url('Welcome/home/')?>">Input</a>
+									<a href="">Input</a>
 										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/about/')?>">About</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/contact/')?>">Contact</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_atasan/')?>">Atasan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_bawahan/')?>">Bawahan</a></li>
 										</ul>
 								</li>
 							</li>
 							
-							<li><a href="<?php echo site_url('Welcome/read/')?>">View</a></li>
+
+							<li class="">
+								<li class="has-dropdown">
+									<a href="">View</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/read/')?>">Atasan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/readbawahan/')?>">Bawahan</a></li>
+										</ul>
+								</li>
+							</li>
 							<li><a href="<?php echo site_url('Welcome/table/')?>">Table</a></li>
 						</ul>
 					</div>

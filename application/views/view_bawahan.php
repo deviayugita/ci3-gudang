@@ -22,10 +22,12 @@
 
 				<div class="row">
 
-					<!-- ===========atasan=========== -->
-					<?php foreach ($Atasan as $row) { ?>
+	
+          	<!-- =========================bawahan================ -->
+
+          <?php foreach ($Bawahan as $row) { ?>
 					<div class="col-lg-4 col-md-4 col-sm-6">
-						<a href="<?php echo site_url('Welcome/detail/'.$row->id_atasan)?>" class="gtco-card-item">
+						<a href="<?php echo site_url('Welcome/detail_bawahan/'.$row->id_bawahan)?>" class="gtco-card-item">
 							<figure>
 								<div class="overlay"><i class="ti-plus"></i></div>
 								<img src="<?php echo site_url('assets/images/'.$row->Gambar) ?>" alt="Image" class="img-responsive">
@@ -34,13 +36,10 @@
 								<h2><strong><?php echo $row->Nama ?></strong></h2>
 								<p><?php echo $row->Harga ?></p>
 								<p><span class="btn btn-primary">Learn more</span></p>
-
-							</div>	
+							</div>
 						</a>
 					</div>
           <?php } ?>
-
-
 
 				</div>
 

@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         $this->load->helper('text');
         
 		$this->load->model('Gudang_model');
-		$this->load->helper('url_helper','date','file','pagination');
+		$this->load->helper(array('url_helper','date','file'));
 		date_default_timezone_set('Asia/Jakarta');
 	}
 
@@ -37,9 +37,13 @@ class Welcome extends CI_Controller {
 // =============================read============================
 	public function read(){
 		$data['Atasan'] = $this->Gudang_model->get_atasan();//ambil data dari Model
-		$data['Bawahan'] = $this->Gudang_model->get_bawahan();//ambil data dari Model
 		
 		$this->load->view('view', $data);
+	}
+	public function readbawahan(){
+		$data['Bawahan'] = $this->Gudang_model->get_bawahan();//ambil data dari Model
+		
+		$this->load->view('view_bawahan', $data);
 	}
 
 
@@ -115,10 +119,109 @@ class Welcome extends CI_Controller {
 
 
 
-
 // ================================update================
-	public function update(){
-		$this->load->view('update');
+	public function edit_atasan()
+	{		
+		$this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('Nama', 'Nama Atasan', 'required');
+        $this->form_validation->set_rules('Jenis', 'Jenis Atasan', 'required');
+        $this->form_validation->set_rules('Merk', 'Merk', 'required');
+        $this->form_validation->set_rules('Ukuran', 'Ukuran', 'required');
+        $this->form_validation->set_rules('Tgl_masuk', 'Tgl Masuk', 'required');
+        $this->form_validation->set_rules('Harga', 'Harga', 'required');
+        $this->form_validation->set_rules('Jumlah', 'Jumlah', 'required');
+
+        $id = $this->uri->segment(3);
+        $data['atasan'] = $this->Gudang_model->get_atasan_by_id($id);
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('update',$data);
+        } else {
+            $config['upload_path'] = 'assets/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+                
+            $this->load->library('upload', $config);
+                
+            if ( ! $this->upload->do_upload('Gambar')){
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+                }
+            else {
+            	if(file_exists('./assets/images/'.$data['atasan']['Gambar'])){
+					unlink('./assets/images/'.$data['atasan']['Gambar']);
+				}else{
+					redirect('Welcome/read','refresh');
+				}
+                $data = array('upload_data' => $this->upload->data());
+                    
+                $data['input'] = array(
+                    'Nama' => $this->input->post('Nama'),
+                    'Jenis' => $this->input->post('Jenis'),
+                    'Merk' => $this->input->post('Merk'),
+                    'Ukuran' => $this->input->post('Ukuran'),
+                    'Tgl_masuk' => date("Y/m/d"),
+                    'Harga' => $this->input->post('Harga'),
+                    'Jumlah' => $this->input->post('Jumlah'),
+                    'Gambar' => $this->upload->data('file_name')
+                );
+                $this->Gudang_model->update_atasan($id, $data['input']);
+                    
+                redirect('Welcome/read');
+                }
+            }   
+	}
+
+	public function edit_bawahan()
+	{		
+		$this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('Nama', 'Nama Bawahan', 'required');
+        $this->form_validation->set_rules('Jenis', 'Jenis Bawahan', 'required');
+        $this->form_validation->set_rules('Merk', 'Merk', 'required');
+        $this->form_validation->set_rules('Ukuran', 'Ukuran', 'required');
+        $this->form_validation->set_rules('Tgl_masuk', 'Tgl Masuk', 'required');
+        $this->form_validation->set_rules('Harga', 'Harga', 'required');
+        $this->form_validation->set_rules('Jumlah', 'Jumlah', 'required');
+
+        $id = $this->uri->segment(3);
+        $data['bawahan'] = $this->Gudang_model->get_bawahan_by_id($id);
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('update_bawah',$data);
+        } else {
+            $config['upload_path'] = 'assets/images/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+                
+            $this->load->library('upload', $config);
+                
+            if ( ! $this->upload->do_upload('Gambar')){
+                $error = array('error' => $this->upload->display_errors());
+                print_r($error);
+                }
+            else {
+            	if(file_exists('./assets/images/'.$data['bawahan']['Gambar'])){
+					unlink('./assets/images/'.$data['bawahan']['Gambar']);
+				}else{
+					redirect('Welcome/read','refresh');
+				}
+                $data = array('upload_data' => $this->upload->data());
+                    
+                $data['input'] = array(
+                    'Nama' => $this->input->post('Nama'),
+                    'Jenis' => $this->input->post('Jenis'),
+                    'Merk' => $this->input->post('Merk'),
+                    'Ukuran' => $this->input->post('Ukuran'),
+                    'Tgl_masuk' => date("Y/m/d"),
+                    'Harga' => $this->input->post('Harga'),
+                    'Jumlah' => $this->input->post('Jumlah'),
+                    'Gambar' => $this->upload->data('file_name')
+                );
+                $this->Gudang_model->update_bawahan($id, $data['input']);
+                    
+                redirect('Welcome/read');
+                }
+            }   
 	}
 
 

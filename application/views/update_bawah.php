@@ -17,22 +17,22 @@
 		<div class="gtco-container">
 			<?php echo validation_errors(); ?>
             <?php echo (isset( $upload_error)) ? '<div class="alert alert-warning" role="alert">' .$upload_error. '</div>' : ''; ?>
-			<?php echo form_open_multipart(current_url(), array('class' => 'needs-validation', 'novalidate' => '')); ?>
+			<?php echo form_open_multipart('Welcome/edit_bawahan/'.$bawahan['id_bawahan'], array('class' => 'needs-validation', 'novalidate' => '')); ?>
 			<div class="row">
 				<div class="col-md-12"><form>
             		<div class="row">
 						<div class="col-md-6">
 								<div class="form-group">
-                    				<input class="form-control" type="text" name="Nama" value="<?php echo set_value('Nama', $atasan['Nama'] ) ?>" placeholder="Nama" required>
+                    				<input class="form-control" type="text" name="Nama" value="<?php echo set_value('Nama', $bawahan['Nama'] ) ?>" placeholder="Nama" required>
                   				</div>
                   				<div class="form-group">
-                    				<input class="form-control" type="text" name="Jenis" value="<?php echo set_value('Jenis', $atasan['Jenis']) ?>" placeholder="Jenis" required>
+                    				<input class="form-control" type="text" name="Jenis" value="<?php echo set_value('Jenis', $bawahan['Jenis']) ?>" placeholder="Jenis" required>
                   				</div>
                   				<div class="form-group">
-                    				<input class="form-control" type="text" name="Merk" value="<?php echo set_value('Merk', $atasan['Merk']) ?>" placeholder="Merk" required>
+                    				<input class="form-control" type="text" name="Merk" value="<?php echo set_value('Merk', $bawahan['Merk']) ?>" placeholder="Merk" required>
                   				</div>
                   				<div class="form-group">
-                    				<select name="Ukuran" value="<?php echo set_value('Ukuran', $atasan['Ukuran']) ?>" class="form-control" required>
+                    				<select name="Ukuran" value="<?php echo set_value('Ukuran', $bawahan['Ukuran']) ?>" class="form-control" required>
 				                    	<option hidden="" selected="">Pilih</option>
 				                    	<option value="S">S</option>
 				                    	<option value="M">M</option>
@@ -44,13 +44,13 @@
                 			</div>
 	                		<div class="col-md-6">
 	                			<div class="form-group">
-	                    			<input class="form-control" name="Tgl_masuk" value="<?php echo set_value('Tgl_masuk', $atasan['Tgl_masuk']) ?>" type="date" placeholder="Tgl_masuk" required>
+	                    			<input class="form-control" name="Tgl_masuk" value="<?php echo set_value('Tgl_masuk', $bawahan['Tgl_masuk']) ?>" type="date" placeholder="Tgl_masuk" required>
 	                  			</div>
 	                  			<div class="form-group">
-	                    			<input class="form-control" name="Harga" value="<?php echo set_value('Harga', $atasan['Harga']) ?>" type="text" placeholder="Harga" required>
+	                    			<input class="form-control" name="Harga" value="<?php echo set_value('Harga', $bawahan['Harga']) ?>" type="text" placeholder="Harga" required>
 	                  			</div>
 	                  			<div class="form-group">
-	                    			<input class="form-control" name="Jumlah" value="<?php echo set_value('Jumlah', $atasan['Jumlah']) ?>" type="text" placeholder="Jumlah" required>
+	                    			<input class="form-control" name="Jumlah" value="<?php echo set_value('Jumlah', $bawahan['Jumlah']) ?>" type="text" placeholder="Jumlah" required>
 	                  			</div>
 	                  			<div class="form-group">
 	                    			<input class="form-control" name="Gambar" type="file">
@@ -60,6 +60,10 @@
 	                		<div class="col-lg-12 text-center">
 	                  			<div id="success"></div>
 	                  			<input type="submit" class="btn btn-primary btn-xl text-uppercase" name="btnSubmit" value="Update"/>
+	                		
+	                	
+	                  			<div id="danger"></div>
+	                  			<input type="submit" class="btn btn-danger btn-xl text-uppercase" value="Back"/>
 	                		</div>
               			</div>
 						
@@ -68,7 +72,6 @@
 				</div>
 
 			</div>
-
 		</div>
 	</div>
 	

@@ -7,7 +7,7 @@
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
 					<h1>Detail <strong><?php echo $Bawahan_list['Nama']  ?></strong></h1>
-					 <a href="<?php echo site_url('Welcome/update/')?>"><button class="btn btn-primary"> UPDATE </button></a>	
+					 <a href="<?php echo site_url( 'Welcome/edit_bawahan/'.$Bawahan_list['id_bawahan']) ?>"><button class="btn btn-primary"> UPDATE </button></a>	
 				</div>
 			</div>
 		</div>
