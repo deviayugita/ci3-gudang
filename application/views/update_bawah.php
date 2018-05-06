@@ -62,8 +62,7 @@
 	                  			<input type="submit" class="btn btn-primary btn-xl text-uppercase" name="btnSubmit" value="Update"/>
 	                		
 	                	
-	                  			<div id="danger"></div>
-	                  			<input type="submit" class="btn btn-danger btn-xl text-uppercase" value="Back"/>
+	                  			
 	                		</div>
               			</div>
 						

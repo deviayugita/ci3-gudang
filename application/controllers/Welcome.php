@@ -117,6 +117,50 @@ class Welcome extends CI_Controller {
                }
         }
 
+        public function create_bawahan(){
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+
+            $this->form_validation->set_rules('Nama', 'Nama Bawahan', 'required');
+            $this->form_validation->set_rules('Jenis', 'Jenis Bawahan', 'required');
+            $this->form_validation->set_rules('Merk', 'Merk', 'required');
+            $this->form_validation->set_rules('Ukuran', 'Ukuran', 'required');
+            $this->form_validation->set_rules('Tgl_masuk', 'Tgl Masuk', 'required');
+            $this->form_validation->set_rules('Harga', 'Harga', 'required');
+            $this->form_validation->set_rules('Jumlah', 'Jumlah', 'required');
+
+               if ($this->form_validation->run() == FALSE) {
+                   $this->load->view('input_bawahan');
+               } else {
+                    $config['upload_path'] = 'assets/images/';
+                    $config['allowed_types'] = 'jpg|png|jpeg';
+                    
+                    $this->load->library('upload', $config);
+                    
+                    if ( ! $this->upload->do_upload('Gambar')){
+                        $error = array('error' => $this->upload->display_errors());
+                        print_r($error);
+                    }
+                    else{
+                        $data = array('upload_data' => $this->upload->data());
+                        
+                        $data['input'] = array(
+                            'Nama' => $this->input->post('Nama'),
+                            'Jenis' => $this->input->post('Jenis'),
+                            'Merk' => $this->input->post('Merk'),
+                            'Ukuran' => $this->input->post('Ukuran'),
+                            'Tgl_masuk' => $this->input->post('Tgl_masuk'),
+                            'Harga' => $this->input->post('Harga'),
+                            'Jumlah' => $this->input->post('Jumlah'),
+                            'Gambar' => $this->upload->data('file_name')
+                        );
+                        
+                        $this->Gudang_model->insert_bawahan($data['input']);
+                        
+                        redirect('Welcome/home');
+                    }
+               }
+        }
 
 
 // ================================update================
