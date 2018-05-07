@@ -66,9 +66,14 @@ class Gudang_model extends CI_Model {
 
 
 // - - - - - - delete - - - - -
-	public function delete_atasan($id){
+
+	public function hapus_atasan($id_atasan){
+		$this->db->where('id_atasan', $id_atasan);
+     	return $this->db->delete('atasan');
      }
-     public function delete_bawahan($id){
+     public function hapus_bawahan($id_bawahan){
+     	$this->db->where('id_bawahan', $id_bawahan);
+     	return $this->db->delete('bawahan');
      }
 }
 ?>

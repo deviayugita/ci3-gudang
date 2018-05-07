@@ -276,8 +276,16 @@ class Welcome extends CI_Controller {
 		$this->load->view('table');
 	}
 
+public function delete_atasan(){
+            $id_atasan = $this->uri->segment(3);
+            $this->Gudang_model->hapus_atasan($id_atasan);
+            redirect('welcome/read','refresh');
+        }
 
-
-
+public function delete_bawahan(){
+            $id_bawahan = $this->uri->segment(3);
+            $this->Gudang_model->hapus_bawahan($id_bawahan);
+            redirect('welcome/read','refresh');
+        }
 	
 }

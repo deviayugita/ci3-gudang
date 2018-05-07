@@ -34,10 +34,14 @@
 								<h2><strong><?php echo $row->Nama ?></strong></h2>
 								<p><?php echo $row->Harga ?></p>
 								<p><span class="btn btn-primary">Learn more</span></p>
+								<!-- <p><span class="btn btn-primary">Delete</span></p> -->
 
 							</div>	
 						</a>
+
 					</div>
+
+
           <?php } ?>
 
 
@@ -48,7 +52,7 @@
 
 
 		</div>
-		
+			
 
 	
 	

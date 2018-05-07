@@ -8,7 +8,9 @@
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
 					<h1>Detail <strong><?php echo $Bawahan_list['Nama']  ?></strong></h1>
 					 <a href="<?php echo site_url( 'Welcome/edit_bawahan/'.$Bawahan_list['id_bawahan']) ?>"><button class="btn btn-primary"> UPDATE </button></a>	
-				</div>
+				         <a href="<?php echo site_url( 'Welcome/delete_bawahan/'.$Bawahan_list['id_bawahan']) ?>"><button class="btn btn-primary"> DELETE</button></a>    
+                         
+                    </div>
 			</div>
 		</div>
 	</header>
