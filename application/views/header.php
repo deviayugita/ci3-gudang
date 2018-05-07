@@ -116,8 +116,16 @@
 										</ul>
 								</li>
 							</li>
-							<li><a href="<?php echo site_url('Welcome/table/')?>">Table</a></li>
-						</ul>
+
+							<li class="">
+								<li class="has-dropdown">
+									<a href="">Table</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/Atasantable/')?>">Atasan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/Bawahantable/')?>">Bawahan</a></li>
+										</ul>
+								</li>
+							</li>
 					</div>
 				</div>
 				
