@@ -6,7 +6,7 @@
 		<div class="gtco-container">
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1>Input <strong>Barang Masuk</strong></h1>	
+					<h1>Input <strong>Data Atasan</strong></h1>	
 					<h2>inputkan data barang masuk secara lengkap.</h2>
 				</div>
 			</div>

@@ -6,8 +6,8 @@
     <div class="gtco-container">
       <div class="row row-mt-15em">
         <div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-          <h1>DATA TABLE <strong>Atasan</strong></h1>  
-          <h2>List dan detail dari data atasan</h2>
+          <h1>DATA TABLE <strong>Bawahan</strong></h1>  
+          <h2>List dan detail dari data bawahan</h2>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Atasan</title>
+    <title>Data Bawahan</title>
     <link href="<?php echo base_url('assests/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assests/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries 
@@ -41,7 +41,7 @@
     <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
-         <th>Id Atasan</th>
+         <th>Id Bawahan</th>
           <th>Nama</th>
           <th>Jenis</th>
           <th>Merk </th>
@@ -57,21 +57,21 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach($atasan as $atasantable){?>
+        <?php foreach($bawahan as $bawahantable){?>
              <tr>
-                 <td><?php echo $atasantable->id_atasan;?></td>
-                 <td><?php echo $atasantable->Nama;?></td>
-                 <td><?php echo $atasantable->Jenis;?></td>
-                <td><?php echo $atasantable->Merk;?></td>
-                <td><?php echo $atasantable->Ukuran;?></td>
-                 <td><?php echo $atasantable->Tgl_masuk;?></td>
-                 <td><?php echo $atasantable->Harga;?></td>
-                <td><?php echo $atasantable->Jumlah;?></td>
-                <td><?php echo $atasantable->Gambar;?></td>
+                 <td><?php echo $bawahantable->id_bawahan;?></td>
+                 <td><?php echo $bawahantable->Nama;?></td>
+                 <td><?php echo $bawahantable->Jenis;?></td>
+                <td><?php echo $bawahantable->Merk;?></td>
+                <td><?php echo $bawahantable->Ukuran;?></td>
+                 <td><?php echo $bawahantable->Tgl_masuk;?></td>
+                 <td><?php echo $bawahantable->Harga;?></td>
+                <td><?php echo $bawahantable->Jumlah;?></td>
+                <td><?php echo $bawahantable->Gambar;?></td>
                
                 <td>
-                  <button class="btn btn-warning" onclick="edit_atasantable(<?php echo $atasantable->id_atasan;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
-                  <button class="btn btn-danger" onclick="delete_atasantable(<?php echo $atasantable->id_atasan;?>)"><i class="glyphicon glyphicon-remove"></i></button>
+                  <button class="btn btn-warning" onclick="edit_bawahantable(<?php echo $bawahantable->id_bawahan;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <button class="btn btn-danger" onclick="delete_bawahantable(<?php echo $bawahantable->id_bawahan;?>)"><i class="glyphicon glyphicon-remove"></i></button>
 
 
                 </td>
@@ -114,7 +114,7 @@
     var table;
 
 
-    function add_atasantable()
+    function add_bawahantable()
     {
       save_method = 'add';
       $('#form')[0].reset(); // reset form on modals
@@ -122,20 +122,20 @@
     //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
     }
 
-    function edit_atasantable(id)
+    function edit_bawahantable(id)
     {
       save_method = 'update';
       $('#form')[0].reset(); // reset form on modals
 
       //Ajax Load data from ajax
       $.ajax({
-        url : "<?php echo site_url('index.php/atasantable/atasantable_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/bawahantable/bawahantable_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id_atasan"]').val(data.id_atasan);
+            $('[name="id_bawahan"]').val(data.id_bawahan);
             $('[name="Nama"]').val(data.Nama);
             $('[name="Jenis"]').val(data.Jenis);
             $('[name="Merk"]').val(data.Merk);
@@ -149,7 +149,7 @@
 
 
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Data Atasan'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Data Bawahan'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -166,11 +166,11 @@
       var url;
       if(save_method == 'add')
       {
-          url = "<?php echo site_url('index.php/atasantable/atasantable_add')?>";
+          url = "<?php echo site_url('index.php/bawahantable/bawahantable_add')?>";
       }
       else
       {
-        url = "<?php echo site_url('index.php/atasantable/atasantable_update')?>";
+        url = "<?php echo site_url('index.php/bawahantable/bawahantable_update')?>";
       }
 
        // ajax adding data to database
@@ -192,13 +192,13 @@
         });
     }
 
-    function delete_atasantable(id)
+    function delete_bawahantable(id)
     {
       if(confirm('Are you sure delete this data?'))
       {
         // ajax delete data from database
           $.ajax({
-            url : "<?php echo site_url('index.php/atasantable/atasantable_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/bawahantable/bawahantable_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -223,11 +223,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Form Data Atasan</h3>
+        <h3 class="modal-title">Form Data Bawahan</h3>
       </div>
       <div class="modal-body form">
         <form action="#" id="form" class="form-horizontal">
-          <input type="hidden" value="" name="id_atasan"/>
+          <input type="hidden" value="" name="id_bawahan"/>
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-md-3">Nama</label>

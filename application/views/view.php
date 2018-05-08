@@ -5,7 +5,7 @@
 		<div class="gtco-container">
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1><strong>Inventaris</strong></h1>	
+					<h1><strong>Detail Atasan</strong></h1>	
 					<h2>detail data inventaris kami.</h2>
 				</div>
 			</div>

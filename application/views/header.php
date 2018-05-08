@@ -8,7 +8,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cloths &mdash; Free Website Template, Free HTML5 Template by GetTemplates.co</title>
+	<title>Gudang &mdash; Fashion</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by GetTemplates.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -68,7 +68,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6 col-xs-6">
-						<div id="gtco-logo"><a href="home">Cloths. <em>.</em></a></div>
+						<div id="gtco-logo"><a href="home">WAREHOUSE. <em>.</em></a></div>
 					</div>
 					<div class="col-md-6 col-xs-6 social-icons">
 						<ul class="gtco-social-top">
@@ -121,8 +121,8 @@
 								<li class="has-dropdown">
 									<a href="">Table</a>
 										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/Atasantable/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/Bawahantable/')?>">Bawahan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Atasantable/')?>">Atasan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Bawahantable/')?>">Bawahan</a></li>
 										</ul>
 								</li>
 							</li>
