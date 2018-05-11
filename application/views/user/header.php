@@ -88,47 +88,25 @@
 					<div class="col-xs-12 menu-1"><center>
 						<ul>
 							<li class="active">
-								<li class="has-dropdown">
+								<li>
 									<a href="<?php echo site_url('Welcome/home/')?>">Home</a>
-										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/about/')?>">About</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/contact/')?>">Contact</a></li>
-										</ul>
 								</li>
-							</li>
-							<li class="">
-								<li class="has-dropdown">
-									<a href="">Input</a>
-										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_atasan/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_bawahan/')?>">Bawahan</a></li>
-										</ul>
+								<li>
+									<a href="<?php echo site_url('Welcome/about/')?>">About</a>
+								</li>
+								<li>
+									<a href="<?php echo site_url('Welcome/contact/')?>">Contact</a>
+								</li>
+								<li>
+									<a href="<?php echo site_url('Welcome/readbarang/')?>">View</a>
 								</li>
 							</li>
 							
 
-							<li class="">
-								<li class="has-dropdown">
-									<a href="">View</a>
-										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/read/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/readbawahan/')?>">Bawahan</a></li>
-										</ul>
-								</li>
-							</li>
 
 							<li class="">
-								<li class="has-dropdown">
-									<a href="">Table</a>
-										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Atasantable/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Bawahantable/')?>">Bawahan</a></li>
-										</ul>
-								</li>
-							</li>
-							<li class="">
 								<li class="pull-right">
-									<a href="<?php echo site_url('Welcome/home/')?>">Logout</a>
+									<a href="<?php echo site_url('Welcome/index/')?>">Login</a>
 								</li>
 							</li>
 						</center>

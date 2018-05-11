@@ -75,6 +75,72 @@ INSERT INTO `bawahan` (`id_bawahan`, `Nama`, `Jenis`, `Merk`, `Ukuran`, `Tgl_mas
 (2, 'blur', 'rok', 'dd', 's', '2018-04-11', '14.000', '21', '');
 
 --
+- --------------------------------------------------------
+
+--
+-- Table structure for table `barang`
+--
+
+CREATE TABLE `barang` (
+  `id_barang` int(11) NOT NULL,
+  `nama` varchar(25) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `harga` varchar(25) NOT NULL,
+  `jumlah` varchar(10) NOT NULL,
+  `id_admin` int(11) NOT NULL,
+  `ukuran` varchar(25) NOT NULL,
+  `tgl_masuk` date NOT NULL,
+  `Gambar` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bawahan`
+--
+
+INSERT INTO `barang` (`id_barang`, `nama`, `id_kategori`, `harga`, `jumlah`, `id_admin`, `ukuran`, `tgl_masuk`, `Gambar`) VALUES
+(, 'jj', '2', '180.000', '2', '3', 'm', '2018-04-03', '');
+
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `no_telp` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bawahan`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama`, `alamat`, `no_telp`) VALUES
+(, 'deviii', 'malng', '00034');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bawahan`
+--
+
+INSERT INTO `admin` (`id_kategori`, `nama`) VALUES
+(, 'celana');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -91,6 +157,27 @@ ALTER TABLE `bawahan`
   ADD PRIMARY KEY (`id_bawahan`);
 
 --
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `barang`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -104,6 +191,21 @@ ALTER TABLE `atasan`
 --
 ALTER TABLE `bawahan`
   MODIFY `id_bawahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+--
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

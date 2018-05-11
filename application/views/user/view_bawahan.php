@@ -1,5 +1,4 @@
-<?php $this->load->view('header');?> 
-
+<?php $this->load->view('user/header');?>
 	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="gtco-container">
