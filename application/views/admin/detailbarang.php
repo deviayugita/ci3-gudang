@@ -39,7 +39,7 @@
                <div class="col-lg-3"></div>
                <div class="col-lg-3"><label>Kategori</label></div>
                <div class="col-lg-1"><label>:</label></div>
-               <div class="col-lg-2"><i><?php echo $Barang_list['id_kategori'] ?></i></div>
+               <div class="col-lg-2"><i><?php echo $Barang_list['nama_kategori'] ?></i></div>
                <div class="col-lg-3"></div>
           </div> 
           <div class="col-lg-12">
@@ -58,18 +58,32 @@
           </div> 
           <div class="col-lg-12">
                <div class="col-lg-3"></div>
+               <div class="col-lg-3"><label>Admin</label></div>
+               <div class="col-lg-1"><label>:</label></div>
+               <div class="col-lg-2"><i><?php echo $Barang_list['nama_admin'] ?></i></div>
+               <div class="col-lg-3"></div>
+          </div>
+          <div class="col-lg-12">
+               <div class="col-lg-3"></div>
+               <div class="col-lg-3"><label>Ukuran</label></div>
+               <div class="col-lg-1"><label>:</label></div>
+               <div class="col-lg-2"><i><?php echo $Barang_list['nama_ukuran'] ?></i></div>
+               <div class="col-lg-3"></div>
+          </div>
+          <div class="col-lg-12">
+               <div class="col-lg-3"></div>
                <div class="col-lg-3"><label>Tanggal Masuk</label></div>
                <div class="col-lg-1"><label>:</label></div>
                <div class="col-lg-2"><i><?php echo $Barang_list['tgl_masuk'] ?></i></div>
                <div class="col-lg-3"></div>
           </div> 
-          <div class="col-lg-12">
+          <!-- <div class="col-lg-12">
                <div class="col-lg-3"></div>
                <div class="col-lg-3"><label>ID admin</label></div>
                <div class="col-lg-1"><label>:</label></div>
                <div class="col-lg-2"><i><?php echo $Barang_list['id_admin'] ?></i></div>
                <div class="col-lg-3"></div>
-          </div> 
+          </div>  -->
                 
 </font>
 					</div>
@@ -86,4 +100,4 @@
 
 
 
-<?php $this->load->view('footer');?> 
+<?php $this->load->view('footer');?>  

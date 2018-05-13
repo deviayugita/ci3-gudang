@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Barang_model extends CI_Model
 {
 
-	var $table = 'arang';
+	var $table = 'barang';
 
 
 	public function __construct()
@@ -14,12 +14,24 @@ class Barang_model extends CI_Model
 	}
 
 
-public function get_all_barang()
-{
-$this->db->from('barang');
-$query=$this->db->get();
-return $query->result();
-}
+	public function get_all_barang($limit = FALSE, $offset = FALSE)
+	{
+		if ( $limit ) {
+            $this->db->limit($limit, $offset);
+        }
+        $this->db->order_by('barang.tgl_masuk', 'DESC');
+
+        $this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori');
+		
+		$this->db->from('barang');
+		$query=$this->db->get();
+		return $query->result();
+	}
+
+	public function get_total() 
+    {
+        return $this->db->count_all("barang");
+    }
 
 
 	public function get_by_id($id_barang)
@@ -50,4 +62,6 @@ return $query->result();
 	}
 
 
+
 }
+

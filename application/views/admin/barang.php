@@ -33,6 +33,8 @@
 							<div class="gtco-text">
 								<h2><strong><?php echo $row->nama ?></strong></h2>
 								<p><?php echo $row->harga ?></p>
+								<small class="text-success text-uppercase"><?php echo $row->nama_kategori ?></small>
+                            <br>
 								<p><span class="btn btn-primary">Learn more</span></p>
 								<!-- <p><span class="btn btn-primary">Delete</span></p> -->
 
@@ -45,13 +47,19 @@
           <?php } ?>
 
 
-
 				</div>
 
 			</div>
 
 
 		</div>
+	</div>
+	    <center>
+	    	<?php 
+        if (isset($links)) {
+            echo $links;
+        } 
+        ?></center>
 			
 
 	

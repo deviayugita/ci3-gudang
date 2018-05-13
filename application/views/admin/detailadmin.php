@@ -6,7 +6,7 @@
 		<div class="gtco-container">
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1>Detail <strong><?php echo $Admin_list['nama']  ?></strong></h1>
+					<h1>Detail <strong><?php echo $Admin_list['nama_admin']  ?></strong></h1>
 					 <a href="<?php echo site_url( 'Welcome/edit_admin/'.$Admin_list['id_admin']) ?>"><button class="btn btn-primary"> UPDATE </button></a>	
 				         <a href="<?php echo site_url( 'Welcome/delete_admin/'.$Admin_list['id_admin']) ?>"><button class="btn btn-primary"> DELETE</button></a>    
                          
@@ -30,7 +30,7 @@
                <div class="col-lg-3"></div>
                <div class="col-lg-3"><label>Nama</label></div>
                <div class="col-lg-1"><label>:</label></div>
-               <div class="col-lg-2"><i><?php echo $Admin_list['nama'] ?></i></div>
+               <div class="col-lg-2"><i><?php echo $Admin_list['nama_admin'] ?></i></div>
                <div class="col-lg-3"></div>
           </div> 
           <div class="col-lg-12">

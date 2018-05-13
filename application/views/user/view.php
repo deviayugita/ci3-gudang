@@ -5,7 +5,7 @@
 		<div class="gtco-container">
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1><strong>Detail Atasan</strong></h1>	
+					<h1><strong>Detail Barang</strong></h1>	
 					<h2>detail data inventaris kami.</h2>
 				</div>
 			</div>
@@ -33,6 +33,9 @@
 							<div class="gtco-text">
 								<h2><strong><?php echo $row->nama ?></strong></h2>
 								<p><?php echo $row->harga ?></p>
+								<br>
+                            <small class="text-success text-uppercase"><?php echo $row->nama_kategori ?></small>
+                            <br>
 								<p><span class="btn btn-primary">Learn more</span></p>
 								<!-- <p><span class="btn btn-primary">Delete</span></p> -->
 
@@ -52,7 +55,12 @@
 
 
 		</div>
-			
+			<center>
+	    	<?php 
+        if (isset($links)) {
+            echo $links;
+        } 
+        ?></center>
 
 	
 	

@@ -6,7 +6,7 @@
 		<div class="gtco-container">
 			<div class="row row-mt-15em">
 				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1><?php echo $Kategori_list['nama']  ?></h1>
+					<h1><?php echo $Kategori_list['nama_kategori']  ?></h1>
 					 <a href="<?php echo site_url( 'Welcome/edit_kategori/'.$Kategori_list['id_kategori']) ?>"><button class="btn btn-primary"> UPDATE </button></a>	
 				         <a href="<?php echo site_url( 'Welcome/delete_kategori/'.$Kategori_list['id_kategori']) ?>"><button class="btn btn-primary"> DELETE</button></a>    
                          

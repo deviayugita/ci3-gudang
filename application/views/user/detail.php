@@ -36,7 +36,7 @@
           	<div class="col-lg-3"></div>
           	<div class="col-lg-3"><label>Kategori</label></div>
           	<div class="col-lg-1"><label>:</label></div>
-          	<div class="col-lg-2"><i><?php echo $Barang_list['id_kategori'] ?></i></div>
+          	<div class="col-lg-2"><i><?php echo $Barang_list['nama_kategori'] ?></i></div>
           	<div class="col-lg-3"></div>
           </div> 
           <div class="col-lg-12">
@@ -53,6 +53,13 @@
           	<div class="col-lg-2"><i><?php echo $Barang_list['jumlah'] ?></i></div>
           	<div class="col-lg-3"></div>
           </div> 
+          <div class="col-lg-12">
+               <div class="col-lg-3"></div>
+               <div class="col-lg-3"><label>Ukuran</label></div>
+               <div class="col-lg-1"><label>:</label></div>
+               <div class="col-lg-2"><i><?php echo $Barang_list['nama_ukuran'] ?></i></div>
+               <div class="col-lg-3"></div>
+          </div>
           <div class="col-lg-12">
           	<div class="col-lg-3"></div>
           	<div class="col-lg-3"><label>Tanggal Masuk</label></div>

@@ -30,7 +30,7 @@
 								<a href="<?php echo site_url('Welcome/detailkategori/'.$row->id_kategori)?>" class="gtco-card-item">
 							<div class="gtco-text">
 								<h1><strong><?php echo $row->id_kategori ?></strong></h1>
-								<p><?php echo $row->nama ?></p>
+								<p><?php echo $row->nama_kategori ?></p>
 							</div></a>
 							</div>
 					</div>
@@ -47,7 +47,12 @@
 
 		</div>
 			
-
+<center>
+	    	<?php 
+        if (isset($links)) {
+            echo $links;
+        } 
+        ?></center>
 	
 	
 	
