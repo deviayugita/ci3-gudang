@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('admin/header');?> 
+<?php $this->load->view('admin/headertabel');?> 
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="gtco-container">
@@ -41,7 +41,7 @@
           <th>Harga</th>
           <th>Jumlah</th>
           <th>ID admin</th>
-          <th>Ukuran</th>
+          <th>ID Ukuran</th>
           <th>Tanggal masuk</th>
           <th>Gambar</th>
           <!-- <th>Book Category</th> -->
@@ -59,7 +59,7 @@
                  <td><?php echo $tabelbarang->harga;?></td>
                  <td><?php echo $tabelbarang->jumlah;?></td>
                  <td><?php echo $tabelbarang->id_admin;?></td>
-                 <td><?php echo $tabelbarang->ukuran;?></td>
+                 <td><?php echo $tabelbarang->id_ukuran;?></td>
                  <td><?php echo $tabelbarang->tgl_masuk;?></td>
                   <td><?php echo $tabelbarang->Gambar;?></td>
                 <td>
@@ -119,7 +119,7 @@
             $('[name="harga"]').val(data.harga);
             $('[name="jumlah"]').val(data.jumlah);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="ukuran"]').val(data.ukuran);
+            $('[name="id_ukuran"]').val(data.id_ukuran);
             $('[name="tgl_masuk"]').val(data.tgl_masuk);
             $('[name="Gambar"]').val(data.Gambar);
           
@@ -245,7 +245,7 @@
             <div class="form-group">
               <label class="control-label col-md-3">Ukuran</label>
               <div class="col-md-9">
-                <input name="ukuran" placeholder="ukuran" class="form-control" type="text">
+                <input name="id_ukuran" placeholder="ukuran" class="form-control" type="text">
               </div>
             </div>
             <div class="form-group">
@@ -275,4 +275,4 @@
 
   </body>
 </html>
-<?php $this->load->view('footer');?>
+<?php $this->load->view('admin/footertabel');?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('admin/header');?> 
+<?php $this->load->view('admin/headertabel');?> 
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="gtco-container">
@@ -36,7 +36,7 @@
       <thead>
         <tr>
          <th>Id kategori</th>
-          <th>Nama</th>
+          <th>Nama Kategori</th>
           <!-- <th>Book Category</th> -->
 
           <th style="width:125px;">Action
@@ -47,7 +47,7 @@
         <?php foreach($kategori as $tabelkategori){?>
              <tr>
                  <td><?php echo $tabelkategori->id_kategori;?></td>
-                 <td><?php echo $tabelkategori->nama;?></td>
+                 <td><?php echo $tabelkategori->nama_kategori;?></td>
                
                 <td>
                   <button class="btn btn-warning" onclick="edit_tabelkategori(<?php echo $tabelkategori->id_kategori;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
@@ -101,7 +101,7 @@
         {
 
             $('[name="id_kategori"]').val(data.id_kategori);
-            $('[name="nama"]').val(data.nama);
+            $('[name="nama_kategori"]').val(data.nama_kategori);
        
           
 
@@ -194,9 +194,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Nama</label>
+              <label class="control-label col-md-3">Nama Kategori</label>
               <div class="col-md-9">
-                <input name="nama" placeholder="nama" class="form-control" type="text">
+                <input name="nama_kategori" placeholder="nama" class="form-control" type="text">
               </div>
             </div>
            
@@ -215,4 +215,4 @@
 
   </body>
 </html>
-<?php $this->load->view('footer');?>
+<?php $this->load->view('admin/footertabel');?>

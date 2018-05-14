@@ -46,7 +46,11 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="http://localhost:8080/ci3-gudang/assets/css/style.css">
 
-	
+	<!-- jQuery -->
+	<script src="http://localhost:8080/ci3-gudang/assets/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://localhost:8080/ci3-gudang/assets/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
 
 	<!-- Modernizr JS -->
 	<script src="http://localhost:8080/ci3-gudang/assets/js/modernizr-2.6.2.min.js"></script>
@@ -91,30 +95,27 @@
 						<ul>
 							<li class="active">
 								<li class="has-dropdown">
-									<a href="<?php echo site_url('Welcome/home/')?>">Home</a>
-										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/about/')?>">About</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/contact/')?>">Contact</a></li>
-										</ul>
+									<a href="<?php echo site_url('Welcome/index/')?>">Home</a>
 								</li>
 							</li>
 							<li class="">
 								<li class="has-dropdown">
 									<a href="">Input</a>
 										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_atasan/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/create_bawahan/')?>">Bawahan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_kategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_admin/')?>">Admin</a></li>
 										</ul>
 								</li>
 							</li>
 							
-
 							<li class="">
 								<li class="has-dropdown">
 									<a href="">View</a>
 										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/read/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/readbawahan/')?>">Bawahan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/barang/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/kategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/viewadmin/')?>">Admin</a></li>
 										</ul>
 								</li>
 							</li>
@@ -123,8 +124,9 @@
 								<li class="has-dropdown">
 									<a href="">Table</a>
 										<ul class="dropdown">
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Atasantable/')?>">Atasan</a></li>
-											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Bawahantable/')?>">Bawahan</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelbarang/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelkategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabeladmin/')?>">Admin</a></li>
 										</ul>
 								</li>
 							</li>

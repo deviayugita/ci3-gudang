@@ -150,52 +150,72 @@ class Welcome extends CI_Controller {
 
 
 // =================================insert============================
-     public function insert(){
+     public function insert($id = NULL){
         $this->load->helper('url','form');
         $this->load->library('form_validation');
 
-        $data['kategori']=$this->Gudang_model->get_kategori();
-        $data['admin']=$this->Gudang_model->get_admin();
+        $data['Barang'] = $this->Gudang_model->get_barang_by_id($id);
+       
+        $data['dropdown_kategori'] = $this->Gudang_model->dropdown_kategori();
+        $data['dropdown_admin'] = $this->Gudang_model->dropdown_admin();
+        $data['dropdown_ukuran'] = $this->Gudang_model->dropdown_ukuran();
 
-        $this->form_validation->set_rules('nama','nama','required');
-        $this->form_validation->set_rules('harga','harga','required');
-        $this->form_validation->set_rules('jumlah','jumlah','required');
-        $this->form_validation->set_rules('ukuran','ukuran','required');
-        $this->form_validation->set_rules('tgl_masuk','tgl_masuk','required');
+        // $this->form_validation->set_rules('nama','nama','required');
+        // $this->form_validation->set_rules('harga','harga','required');
+        // $this->form_validation->set_rules('jumlah','jumlah','required');
+        // $this->form_validation->set_rules('ukuran','ukuran','required');
+        // $this->form_validation->set_rules('tgl_masuk','tgl_masuk','required');
         $this->form_validation->set_rules('nama','nama','required|is_unique[barang.nama]',
             array(
                 'required'      => 'di isi yaa',
                 'is_unique'     =>  'nama'.$this->input->post('nama').'sudah di isi'));
 
-        $this->load->model('Gudang_model');
-        if($this->form_validation->run()==FALSE){
-            $this->load->view('admin/insert_barang',$data);
-        }
-        else{
-                $config['upload_path']          = './assets/images/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG';
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('admin/insert_barang', $data);
+
+        } else {
+
+            if ( isset($_FILES['image']) && $_FILES['image']['size'] > 0 )
+            {
+                $config['upload_path']          = './img/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
 
                 $this->load->library('upload', $config);
 
-                if ( ! $this->upload->do_upload('userfile'))
+                if ( ! $this->upload->do_upload('image'))
                 {
-                        $error = array('error' => $this->upload->display_errors());
-                        print_r($error);
+                    $data['upload_error'] = $this->upload->display_errors();
+
+                    $image = '';
+
+                    $this->load->view('admin/insert_barang', $data);
+                } else {
+                    $img_data = $this->upload->data();
+                    $image = $img_data['file_name'];
+                    
                 }
-                else
-                {
-                        $data = array(
-                            'nama'=>$this->input->post('nama'),
-                            'id_kategori'=>$this->input->post('id_kategori'),
-                            'harga'=> $this->input->post('harga'),
-                            'jumlah'=>$this->input->post('jumlah'),
-                            'id_admin'=>$this->input->post('id_admin'),
-                            'ukuran'=>$this->input->post('ukuran'),
-                            'tgl_masuk'=>$this->input->post('tgl_masuk'),
+            } else {
+                $image = '';
+            }
+                        $post_data = array(
+                            'nama' => $this->input->post('nama'),
+                            'id_kategori' => $this->input->post('id_kategori'),
+                            'harga' => $this->input->post('harga'),
+                            'jumlah' => $this->input->post('jumlah'),
+                            'id_ukuran' => $this->input->post('id_ukuran'),
+                            'id_admin' => $this->input->post('id_admin'),
+                            'tgl_masuk' => $this->input->post('tgl_masuk'),
                             'Gambar'=>$this->upload->data('file_name')
                         );
-                        $this->Gudang_model->insert_barang($data);
-                        redirect('Welcome/admin');
+                        if( empty($data['upload_error']) ) {
+                $this->Gudang_model->insert_barang($post_data);
+                redirect('Welcome/barang');
+            
                 }
         }
     }

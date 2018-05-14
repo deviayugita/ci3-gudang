@@ -37,7 +37,7 @@ class Tabeladmin extends CI_Controller {
 		{
 			$data = array(
 					'id_admin' => $this->input->post('id_admin'),
-					'nama' => $this->input->post('nama'),
+					'nama_admin' => $this->input->post('nama_admin'),
 					'alamat' => $this->input->post('alamat'),
 					'no_telp' => $this->input->post('no_telp'),
 				);
@@ -57,7 +57,7 @@ class Tabeladmin extends CI_Controller {
 	{
 		$data = array(
 			'id_admin' => $this->input->post('id_admin'),
-					'nama' => $this->input->post('nama'),
+					'nama_admin' => $this->input->post('nama_admin'),
 					'alamat' => $this->input->post('alamat'),
 					'no_telp' => $this->input->post('no_telp'),
 			);
