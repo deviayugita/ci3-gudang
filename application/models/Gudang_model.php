@@ -169,6 +169,9 @@ class Gudang_model extends CI_Model {
 		$query = $this->db->get('admin');
 		return $query->result();
 	}
+	public function insert_admin($data){
+			$this->db->insert('admin', $data);
+		}
 	public function hapus_admin($id_admin){
      	$this->db->where('id_admin', $id_admin);
      	return $this->db->delete('admin');

@@ -17,7 +17,7 @@
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-12">
-					<?php echo form_open_multipart('Welcome/create_atasan')?>
+					<?php echo form_open_multipart('welcome/insert')?>
               			<div class="row">
                 			<div class="col-md-6">
                   				<div class="form-group">
@@ -60,8 +60,7 @@
 	                  			<input type="submit" class="btn btn-primary btn-xl text-uppercase" name="btnSubmit" value="Simpan"/>
 	                		</div>
               			</div>
-            		</form>		
-				
+				<?php echo form_close(); ?>
 				</div>
 
 			</div>

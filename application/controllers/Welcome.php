@@ -20,14 +20,6 @@ class Welcome extends CI_Controller {
 		date_default_timezone_set('Asia/Jakarta');
 	}
 
-
-
-	
-
-
-
-
-
 // ================================================admin=========================================
     public function index()
     {
@@ -50,7 +42,7 @@ class Welcome extends CI_Controller {
             $data["Barang"] = $this->Barang_model->get_all_barang($limit_per_page, $start_index);
             
             // Konfigurasi pagination
-            $config['base_url'] = base_url() . 'welcome/barang';
+            $config['base_url'] = base_url() . 'Welcome/barang';
             $config['total_rows'] = $total_records;
             $config['per_page'] = $limit_per_page;
             $config["uri_segment"] = 3;
@@ -64,6 +56,13 @@ class Welcome extends CI_Controller {
         
         $this->load->view('admin/barang', $data);
     }
+
+
+
+
+
+
+
     public function viewadmin(){
         $limit_per_page = 6;
 
@@ -160,15 +159,23 @@ class Welcome extends CI_Controller {
         $data['dropdown_admin'] = $this->Gudang_model->dropdown_admin();
         $data['dropdown_ukuran'] = $this->Gudang_model->dropdown_ukuran();
 
-        // $this->form_validation->set_rules('nama','nama','required');
-        // $this->form_validation->set_rules('harga','harga','required');
-        // $this->form_validation->set_rules('jumlah','jumlah','required');
-        // $this->form_validation->set_rules('ukuran','ukuran','required');
-        // $this->form_validation->set_rules('tgl_masuk','tgl_masuk','required');
         $this->form_validation->set_rules('nama','nama','required|is_unique[barang.nama]',
             array(
-                'required'      => 'di isi yaa',
+                'required'      => ' %s di isi yaa',
                 'is_unique'     =>  'nama'.$this->input->post('nama').'sudah di isi'));
+
+        $this->form_validation->set_rules('kategori','kategori','required',
+            array('required'      => ' %s di isi yaa'));
+        $this->form_validation->set_rules('harga','harga','required',
+            array('required'      => ' %s di isi yaa'));
+        $this->form_validation->set_rules('jumlah','jumlah','required',
+            array('required'      => '%s di isi yaa'));
+        $this->form_validation->set_rules('admin','admin','required',
+            array('required'      => '%s di isi yaa'));
+        $this->form_validation->set_rules('ukuran','ukuran','required',
+            array('required'      => '%s di isi yaa'));
+        $this->form_validation->set_rules('tgl_masuk','tgl_masuk','required',
+            array('required'      => '%s di isi yaa'));
 
         if ($this->form_validation->run() === FALSE)
         {
@@ -178,7 +185,7 @@ class Welcome extends CI_Controller {
 
             if ( isset($_FILES['image']) && $_FILES['image']['size'] > 0 )
             {
-                $config['upload_path']          = './img/';
+                $config['upload_path']          = './assets/images/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 100;
                 $config['max_width']            = 1024;
@@ -191,9 +198,9 @@ class Welcome extends CI_Controller {
                 {
                     $data['upload_error'] = $this->upload->display_errors();
 
-                    $image = '';
+                    print_r($data['upload_error']);
 
-                    $this->load->view('admin/insert_barang', $data);
+                    // $this->load->view('admin/insert_barang', $data);
                 } else {
                     $img_data = $this->upload->data();
                     $image = $img_data['file_name'];
@@ -226,14 +233,14 @@ class Welcome extends CI_Controller {
 
 
         // $this->form_validation->set_rules('nama','nama','required');
-        $this->form_validation->set_rules('nama_kategori','nama_kategori','required|is_unique[barang.nama_kategori]',
+        $this->form_validation->set_rules('nama_kategori','nama','required|is_unique[kategori.nama_kategori]',
             array(
-                'required'      => 'di isi yaa',
-                'is_unique'     =>  'nama_kategori'.$this->input->post('nama_kategori').'sudah di isi'));
+                'required'      => '%s di isi yaa',
+                'is_unique'     =>  'nama '.$this->input->post('nama_kategori').' sudah di isi'));
 
         $this->load->model('Gudang_model');
         if($this->form_validation->run()==FALSE){
-            $this->load->view('admin/insert_kategori',$data);
+            $this->load->view('admin/insert_kategori');
         }
         else{
                 
@@ -241,8 +248,7 @@ class Welcome extends CI_Controller {
                             'nama_kategori'=>$this->input->post('nama_kategori')
                         );
                         $this->Gudang_model->insert_kategori($data);
-                        redirect('Welcome/admin');
-                
+                        redirect('Welcome/kategori');       
         }
     }
 
@@ -250,14 +256,16 @@ class Welcome extends CI_Controller {
         $this->load->helper('url','form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nama','nama','required');
-        $this->form_validation->set_rules('alamat','alamat','required');
-        $this->form_validation->set_rules('no_telp','no_telp','required');
-
-        $this->form_validation->set_rules('nama','nama','required|is_unique[kategori.nama]',
+        $this->form_validation->set_rules('nama_admin','nama','required|is_unique[admin.nama_admin]',
             array(
-                'required'      => 'di isi yaa',
-                'is_unique'     =>  'nama'.$this->input->post('nama').'sudah ada'));
+                'required'      => '%s di isi yaa',
+                'is_unique'     =>  'nama'.$this->input->post('nama_admin').'sudah ada'));
+
+        $this->form_validation->set_rules('alamat','alamat','required',
+            array('required'      => '%s di isi yaa'));
+
+        $this->form_validation->set_rules('no_telp','no telp','required',
+            array('required'      => '%s di isi yaa'));
         
         
         $this->load->model('Gudang_model');
@@ -267,12 +275,12 @@ class Welcome extends CI_Controller {
         else{
             
                         $data = array(
-                            'nama'=>$this->input->post('nama'),
+                            'nama_admin'=>$this->input->post('nama_admin'),
                             'alamat'=>$this->input->post('alamat'),
                             'no_telp'=>$this->input->post('no_telp')
                         );
                         $this->Gudang_model->insert_admin($data);
-                        redirect('Welcome/admin');
+                        redirect('Welcome/viewadmin');
             
         }
     }
@@ -506,7 +514,7 @@ class Welcome extends CI_Controller {
 
             
             // Konfigurasi pagination
-            $config['base_url'] = base_url() . 'welcome/barang';
+            $config['base_url'] = base_url() . 'welcome/readbarang';
             $config['total_rows'] = $total_records;
             $config['per_page'] = $limit_per_page;
             $config["uri_segment"] = 3;

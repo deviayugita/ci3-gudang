@@ -1,6 +1,5 @@
 <?php $this->load->view('admin/header');?> 
 
-
   <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="gtco-container">
@@ -15,7 +14,7 @@
 
   <div class="gtco-section gtco-gray-bg">
     <div class="gtco-container">
-    <?php echo form_open_multipart('Welcome/create')?>
+    <?php echo form_open_multipart('welcome/insert', array('class' => 'needs-validation', 'novalidate' => ''));?>
     <?php echo validation_errors(); ?>
                     <?php echo (isset( $upload_error)) ? '<div class="alert alert-warning" role="alert">' .$upload_error. '</div>' : ''; ?>
       <div class="row">
@@ -64,7 +63,7 @@
                           
                           <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">Gambar</span>
-                            <input class="form-control" name="Gambar" type="file">
+                            <input class="form-control" name="image" type="file">
                           </div>
                       </div>
                     <div class="clearfix"></div>
