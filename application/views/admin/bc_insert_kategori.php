@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/header');?>    
+<?php $this->load->view('user/header');?>    
 <!-- insert -->
     <section class="bg-light" id="insert">
       <div class="container">

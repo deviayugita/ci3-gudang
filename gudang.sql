@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14 Mei 2018 pada 08.03
+-- Generation Time: 12 Jul 2018 pada 11.09
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -175,6 +175,37 @@ INSERT INTO `ukuran` (`id_ukuran`, `nama_ukuran`) VALUES
 (4, 'XL'),
 (5, 'XXL');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `no_tlp` varchar(20) NOT NULL,
+  `username` varchar(225) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `alamat`, `email`, `no_tlp`, `username`, `password`, `tanggal`) VALUES
+(1, 'aaa', 'jl', 'aaa@gmail.com', '098765', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808', '2018-07-11 14:23:56'),
+(2, 'bbb', 'suhat', 'bbb@gmail.com', '12345', 'bbb', '08f8e0260c64418510cefb2b06eee5cd', '2018-07-11 15:01:04'),
+(3, 'ccc', 'malang', 'ccc', '22222', 'ccc', '9df62e693988eb4e1e1444ece0578579', '2018-07-11 15:03:55'),
+(4, 'abc', 'mlg', 'abc@gmail.com', '11111', 'abc', '900150983cd24fb0d6963f7d28e17f72', '2018-07-11 15:05:13'),
+(5, 'zzz', 'jkt', 'zzz@gmail.com', '121212', 'zzz', 'f3abb86bd34cf4d52698f14c0da1dc60', '2018-07-11 15:09:01'),
+(6, 'qwerty', 'asd', 'qwerty@gmail.com', '65432', 'qwerty', 'd8578edf8458ce06fbc5bb76a58c5ca4', '2018-07-11 15:10:00'),
+(7, 'sss', 'lawang', 'sss@gmail.com', '212121', 'sss', '9f6e6800cfae7749eb6c486619254b9c', '2018-07-12 00:09:00'),
+(8, 'ppp', 'sby', 'ppp', '223344', 'ppp', 'f27f6f1c7c5cbf4e3e192e0a47b85300', '2018-07-12 09:07:28');
+
 --
 -- Indexes for dumped tables
 --
@@ -219,6 +250,12 @@ ALTER TABLE `ukuran`
   ADD PRIMARY KEY (`id_ukuran`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -252,6 +289,11 @@ ALTER TABLE `kategori`
 --
 ALTER TABLE `ukuran`
   MODIFY `id_ukuran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

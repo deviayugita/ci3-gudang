@@ -87,6 +87,7 @@
 				<div class="row">
 					<div class="col-xs-12 menu-1"><center>
 						<ul>
+							<?php if(!$this->session->userdata('logged_in')) : ?>
 							<li class="active">
 								<li>
 									<a href="<?php echo site_url('Welcome/home/')?>">Home</a>
@@ -101,18 +102,81 @@
 									<a href="<?php echo site_url('Welcome/readbarang/')?>">View</a>
 								</li>
 							</li>
-							
-
-
 							<li class="">
 								<li class="pull-right">
-									<a href="<?php echo site_url('Welcome/index/')?>">Login</a>
+									<a href="<?php echo site_url('Welcome/login/')?>">Login</a>
+								</li>
+								<li class="pull-right">
+									<a href="<?php echo site_url('Welcome/register/')?>">Register</a>
 								</li>
 							</li>
+						<?php endif; ?>
+
+
+						<?php if($this->session->userdata('logged_in')) : ?>
+							<li class="active">
+								<li class="has-dropdown">
+									<a href="<?php echo site_url('Welcome/index/')?>">Home</a>
+								</li>
+							</li>
+							<li class="">
+								<li class="has-dropdown">
+									<a href="">Input</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_kategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_admin/')?>">Admin</a></li>
+										</ul>
+								</li>
+							</li>
+							
+							<li class="">
+								<li class="has-dropdown">
+									<a href="">View</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/barang/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/kategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/viewadmin/')?>">Admin</a></li>
+										</ul>
+								</li>
+							</li>
+
+							<li class="">
+								<li class="has-dropdown">
+									<a href="">Table</a>
+										<ul class="dropdown">
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelbarang/')?>">Barang</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelkategori/')?>">Kategori</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabeladmin/')?>">Admin</a></li>
+										</ul>
+								</li>
+							</li>
+							<li class="">
+								<li class="pull-right">
+									<a href="<?php echo site_url('Welcome/logout/')?>">Logout</a>
+								</li>
+							</li>
+						<?php endif; ?>
+
+					</ul>
 						</center>
 					</div>
 				</div>
 				
-			</div>
 		</nav>
 	</div>
+
+	<?php if($this->session->flashdata('user_registered')): ?>
+          <?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('login_failed')): ?>
+          <?php echo '<div class="alert alert-danger">'.$this->session->flashdata('login_failed').'</div>'; ?>
+        <?php endif; ?>
+
+        <?php if($this->session->flashdata('user_loggedin')): ?>
+          <?php echo '<div class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</div>'; ?>
+        <?php endif; ?>
+
+         <?php if($this->session->flashdata('user_loggedout')): ?>
+          <?php echo '<div class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</div>'; ?>
+        <?php endif; ?>

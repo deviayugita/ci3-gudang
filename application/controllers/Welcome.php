@@ -12,10 +12,12 @@ class Welcome extends CI_Controller {
         $this->load->helper('form');
         $this->load->helper('text');
         
+        $this->load->library('form_validation');
 		$this->load->model('Gudang_model');
         $this->load->model('Barang_model');
         $this->load->model('Kategori_model');
         $this->load->model('Admin_model');
+        $this->load->model('User_model');
 		$this->load->helper(array('url_helper','date','file'));
 		date_default_timezone_set('Asia/Jakarta');
 	}
@@ -25,6 +27,90 @@ class Welcome extends CI_Controller {
     {
 
         $this->load->view('Admin/index');
+    }
+
+    // public function admin()
+    // {
+
+    //     $this->load->view('Admin/index');
+    // }
+
+    public function register(){
+
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]');
+        $this->form_validation->set_rules('email', 'Email', 'required|is_unique[user.email]');
+        $this->form_validation->set_rules('no_tlp', 'No_tlp', 'required|is_unique[user.no_tlp]');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]');
+
+        if($this->form_validation->run() === FALSE){
+            $this->load->view('register');
+        } else {
+            // Encrypt password
+            $enc_password = md5($this->input->post('password'));
+
+            $this->User_model->register($enc_password);
+
+            // Set message
+            $this->session->set_flashdata('user_registered', 'Anda telah teregistrasi.');
+
+            redirect('welcome/home');
+        }
+    }
+
+    public function login(){
+
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if($this->form_validation->run() === FALSE){
+            $this->load->view('login');
+        } else {
+            
+            // Get username
+            $username = $this->input->post('username');
+            // Get & encrypt password
+            $password = md5($this->input->post('password'));
+
+            // Login user
+            $id_user = $this->User_model->login($username, $password);
+
+            if($id_user){
+                // Buat session
+                $user_data = array(
+                    'id_user' => $id_user,
+                    'username' => $username,
+                    'logged_in' => true,
+                    // 'level' => $this->user_model->get_user_level($user_id),
+                );
+
+                $this->session->set_userdata($user_data);
+
+                // Set message
+                $this->session->set_flashdata('user_loggedin', 'Anda sudah login');
+            
+                redirect('Welcome/index');
+            } else {
+                // Set message
+                $this->session->set_flashdata('login_failed', 'Login invalid');
+
+                redirect('Welcome/login');
+            }       
+        }
+    }
+
+    // Log user out
+    public function logout(){
+        // Unset user data
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('id_user');
+        $this->session->unset_userdata('username');
+
+        // Set message
+        $this->session->set_flashdata('user_loggedout', 'Anda sudah log out');
+
+        redirect('Welcome/login');
     }
 // =============================read============================
     public function barang(){
