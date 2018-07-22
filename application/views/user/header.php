@@ -90,7 +90,7 @@
 							<?php if(!$this->session->userdata('logged_in') || $this->session->userdata('logged_in')) : ?>
 							<li class="active">
 								<li>
-									<a href="<?php echo site_url('Welcome/home/')?>">Home</a>
+									<a href="<?php echo site_url('Welcome/dashboard/')?>">Home</a>
 								</li>
 								<li>
 									<a href="<?php echo site_url('Welcome/about/')?>">About</a>
@@ -100,7 +100,7 @@
 								</li>
 								<?php endif; ?>
 
-						<?php if($this->session->userdata('logged_in') && $this->session->userdata('level') == 4 ) : ?> 
+						<?php if($this->session->userdata('logged_in') && $this->session->userdata('level') == 3 ) : ?> 
 								<li>
 									<a href="<?php echo site_url('Welcome/readbarang/')?>">View</a>
 								</li>
@@ -108,12 +108,15 @@
 
 								<?php if($this->session->userdata('logged_in')) : ?>
 								<li>
-									<a href="<?php echo site_url('Welcome/contact/')?>">Data Barang</a>
+									<a href="<?php echo site_url('Tabelbarang/tabel/')?>">Data Barang</a>
 								</li>
 								<?php endif; ?>
 								
 							</li>
 							
+
+
+
 
 							<?php if(!$this->session->userdata('logged_in')) : ?>
 							<li class="">

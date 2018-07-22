@@ -89,9 +89,12 @@
 						<ul>
 							<li class="active">
 								<li class="has-dropdown">
-									<a href="<?php echo site_url('Welcome/index/')?>">Home</a>
+									<a href="<?php echo site_url('Welcome/dashboard_admin/')?>">Home</a>
 								</li>
 							</li>
+
+
+							<?php if($this->session->userdata('level') == 1) : ?>
 							<li class="">
 								<li class="has-dropdown">
 									<a href="">Input</a>
@@ -99,29 +102,42 @@
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert/')?>">Barang</a></li>
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_kategori/')?>">Kategori</a></li>
 
-											<?php if($this->session->userdata('level') == 1) : ?> 
+											 
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/insert_admin/')?>">Admin</a></li>
-											<?php endif; ?> 
+											
 
 										</ul>
 								</li>
 							</li>
-							
+							<?php endif; ?> 
+
+
+
+							<?php if($this->session->userdata('level') == 2) : ?>
 							<li class="">
 								<li class="has-dropdown">
-									<a href="">View</a>
-										<ul class="dropdown">
+									<a href="<?php echo site_url('Welcome/barang/')?>">View Barang</a>
+										<!-- <ul class="dropdown">
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/barang/')?>">Barang</a></li>
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/kategori/')?>">Kategori</a></li>
-											 
 											 <?php if($this->session->userdata('level') == 1) : ?> 
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Welcome/viewadmin/')?>">Admin</a></li>
 											<?php endif; ?>
-											
-										</ul>
+										</ul> -->
 								</li>
 							</li>
+							<?php endif; ?>
 
+
+							<?php if($this->session->userdata('level') == 2) : ?>
+							<li class="">
+								<li class="has-dropdown">
+									<a href="<?php echo site_url('Tabelbarang/')?>">Input</a>
+							</li>
+							<?php endif; ?>
+
+
+							<?php if($this->session->userdata('level') == 1) : ?>
 							<li class="">
 								<li class="has-dropdown">
 									<a href="">Table</a>
@@ -129,13 +145,16 @@
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelbarang/')?>">Barang</a></li>
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelkategori/')?>">Kategori</a></li>
 
-											<?php if($this->session->userdata('level') == 1) : ?>
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabeladmin/')?>">Admin</a></li>
-											<?php endif; ?>
-											
 										</ul>
 								</li>
 							</li>
+							<?php endif; ?>
+
+
+
+
+
 							<li class="">
 								<li class="pull-right">
 									<a href="<?php echo site_url('Welcome/logout/')?>">Logout</a>

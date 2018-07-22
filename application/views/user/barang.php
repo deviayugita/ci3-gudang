@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('admin/header');?> 
+<?php $this->load->view('user/header');?> 
 <header>
 <br>
 <br><br>
@@ -39,12 +39,6 @@
           <th>ID Ukuran</th>
           <th>Tanggal masuk</th>
           <th>Gambar</th>
-          <!-- <th>Book Category</th> -->
-          <th style="width:125px;">Action</th>
-
-          <!-- <new> -->
-            <th>Tambah</th>
-            <!-- <wes> -->
 
         </tr>
       </thead>
@@ -60,16 +54,6 @@
                  <td><?php echo $tabelbarang->id_ukuran;?></td>
                  <td><?php echo $tabelbarang->tgl_masuk;?></td>
                   <td><?php echo $tabelbarang->Gambar;?></td>
-                <td>
-                  <button class="btn btn-warning" onclick="edit_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
-                  <button class="btn btn-danger" onclick="delete_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-remove"></i></button>
-                </td>
-
-                <!-- new -->
-                <td>
-                  <a href="<?php echo site_url('Tabelbarang/transaksi/'.$tabelbarang->id_barang)?>"><button class="btn btn-primary">Tambah</button></a>
-                </td>
-                <!-- wes -->
 
               </tr>
              <?php }?>

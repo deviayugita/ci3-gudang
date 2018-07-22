@@ -1,15 +1,7 @@
 <?php $this->load->view('user/header');?>
 
-	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="gtco-container">
-			<div class="row row-mt-15em">
-				<div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-					<h1><strong>Detail Barang</strong></h1>	
-					<h2>detail data inventaris kami.</h2>
-				</div>
-			</div>
-		</div>
+	<header>
+		<br><br><br>
 	</header>
 
 
@@ -22,6 +14,7 @@
 
 				<div class="row">
 
+<h2 class="text-center">DATA BARANG</h2>
 					<!-- ===========atasan=========== -->
 					<?php foreach ($Barang as $row) { ?>
 					<div class="col-lg-4 col-md-4 col-sm-6">

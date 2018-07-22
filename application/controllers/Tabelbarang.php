@@ -50,6 +50,14 @@ class Tabelbarang extends CI_Controller {
 	}
 
 
+	public function tabel()
+	{
+
+		$data['barang']=$this->Barang_model->get_all_barang();
+		$this->load->view('user/barang',$data);
+	}
+
+
 	public function tabelbarang_add()
 		{
 			$data = array(
@@ -113,6 +121,9 @@ class Tabelbarang extends CI_Controller {
     public function tambah_jumlah($id = NULL){
     	$jumlah_brg = $this->input->post('jumlah_brg') + $this->input->post('jumlah');
     	$this->Gudang_model->add_barang($jumlah_brg);
+
+
+    	redirect('Tabelbarang/index', $data);
 
         // $post_data = array(
         //         'jumlah' => $this->input->post('jumlah'),

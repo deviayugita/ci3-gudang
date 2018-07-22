@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php $this->load->view('admin/header');?> 
-<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-      <div class="row row-mt-15em">
-        <div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-          <h1>DATA TABLE <strong>ADMIN</strong></h1>  
-          <h2>List dan detail dari admin</h2>
-        </div>
-      </div>
-    </div>
+<header>
+  <br><br><br>
   </header>
 
   <!-- ..........BATAS SUCI............... -->
@@ -32,6 +24,7 @@
    <!--  <button class="btn btn-success" onclick="add_atasantable()"><i class="glyphicon glyphicon-plus"></i> Add Data Atasan</button> -->
     <br />
     <br />
+    <h2 class="text-center">DATA ADMIN</h2>
     <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>

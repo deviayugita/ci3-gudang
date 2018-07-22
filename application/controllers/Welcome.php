@@ -167,10 +167,10 @@ class Welcome extends CI_Controller {
     }
 // =============================read============================
     public function barang(){
-        if($this->session->userdata('level') == 2){
-            $this->session->set_flashdata('msg_level','Member tidak dapat melakukan tambah artikel');
-            redirect('welcome','refresh');
-        }
+        // if($this->session->userdata('level') == 2){
+        //     $this->session->set_flashdata('msg_level','Member tidak dapat melakukan tambah artikel');
+        //     redirect('welcome','refresh');
+        // }
 
         $limit_per_page = 6;
 

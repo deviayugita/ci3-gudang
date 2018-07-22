@@ -1,15 +1,7 @@
 <?php $this->load->view('admin/header');?> 
 
-  <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-      <div class="row row-mt-15em">
-        <div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-          <h1>Tambahkan <strong>Admin</strong></h1> 
-          <h2>inputkan data secara lengkap.</h2>
-        </div>
-      </div>
-    </div>
+  <header>
+    <br><br><br>
   </header>
 
   <div class="gtco-section gtco-gray-bg">
@@ -18,6 +10,7 @@
     <?php echo validation_errors(); ?>
                     <?php echo (isset( $upload_error)) ? '<div class="alert alert-warning" role="alert">' .$upload_error. '</div>' : ''; ?>
       <div class="row">
+            <h2 class="text-center">INSERT ADMIN</h2>
         <div class="col-md-12"><form>
           <div class="row">
             <div class="col-md-6">
