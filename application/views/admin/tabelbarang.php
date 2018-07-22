@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view('user/header');?> 
+<?php $this->load->view('admin/header');?> 
 <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(http://localhost:8080/ci3-gudang/assets/images/img_bg_3.jpg)" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="gtco-container">
@@ -23,7 +23,7 @@
     <link href="<?php echo base_url('assests/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
   </head>
   <body>
-
+ 
 
   <div class="container">
     <!-- <h1>Data Atasan</h1> -->
@@ -45,9 +45,12 @@
           <th>Tanggal masuk</th>
           <th>Gambar</th>
           <!-- <th>Book Category</th> -->
+          <th style="width:125px;">Action</th>
 
-          <th style="width:125px;">Action
-          </p></th>
+          <!-- <new> -->
+            <th>Tambah</th>
+            <!-- <wes> -->
+
         </tr>
       </thead>
       <tbody>
@@ -65,9 +68,14 @@
                 <td>
                   <button class="btn btn-warning" onclick="edit_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
                   <button class="btn btn-danger" onclick="delete_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-remove"></i></button>
-
-
                 </td>
+
+                <!-- new -->
+                <td>
+                  <a href="<?php echo site_url('Tabelbarang/transaksi/'.$tabelbarang->id_barang)?>"><button class="btn btn-primary">Tambah</button></a>
+                </td>
+                <!-- wes -->
+
               </tr>
              <?php }?>
 

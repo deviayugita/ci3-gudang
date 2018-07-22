@@ -20,12 +20,15 @@ class Welcome extends CI_Controller {
         $this->load->model('User_model');
 		$this->load->helper(array('url_helper','date','file'));
 		date_default_timezone_set('Asia/Jakarta');
+       
 	}
 
 // ================================================admin=========================================
     public function index()
     {
-
+        // if($this->session->userdata('level') == 1){
+        //     redirect('welcome','refresh');
+        // }
         $this->load->view('Admin/index');
     }
 
@@ -75,6 +78,8 @@ class Welcome extends CI_Controller {
 
             // Login user
             $id_user = $this->User_model->login($username, $password);
+            $id_admin = $this->User_model->loginAdmin($username, $password);
+            // $id2 = $this->model_user->loginPendaftar($username, $password);
 
             if($id_user){
                 // Buat session
@@ -82,7 +87,8 @@ class Welcome extends CI_Controller {
                     'id_user' => $id_user,
                     'username' => $username,
                     'logged_in' => true,
-                    // 'level' => $this->user_model->get_user_level($user_id),
+                    'level' => $this->User_model->get_user_level($id_user),
+                    
                 );
 
                 $this->session->set_userdata($user_data);
@@ -90,7 +96,23 @@ class Welcome extends CI_Controller {
                 // Set message
                 $this->session->set_flashdata('user_loggedin', 'Anda sudah login');
             
-                redirect('Welcome/index');
+                redirect('welcome/dashboard');
+
+                } else if($id_admin) {
+                $user_data = array(
+                    'id_admin' => $id_admin,
+                    'username' => $username,
+                    'logged_in' => true,
+                    'level' => $this->User_model->get_user_level_admin($id_admin),
+                );
+
+                $this->session->set_userdata($user_data);
+
+                // Set message
+                $this->session->set_flashdata('user_loggedin', 'Anda sudah login');
+
+                redirect('welcome/dashboard_admin');
+
             } else {
                 // Set message
                 $this->session->set_flashdata('login_failed', 'Login invalid');
@@ -98,6 +120,37 @@ class Welcome extends CI_Controller {
                 redirect('Welcome/login');
             }       
         }
+    }
+
+    // Fungsi Dashboard
+    function dashboard()
+    {
+        // Must login
+        if(!$this->session->userdata('logged_in')) 
+            redirect('welcome/login');
+
+        $id_user = $this->session->userdata('id_user');
+
+        // Dapatkan detail dari User 
+        $data['user'] = $this->User_model->get_user_details($id_user);
+
+        // Load view
+        $this->load->view('user/dashboard', $data, FALSE);
+    }
+
+    function dashboard_admin()
+    {
+        // Must login
+        if(!$this->session->userdata('logged_in')) 
+            redirect('welcome/login');
+
+        $id_admin = $this->session->userdata('id_admin');
+
+        // Dapatkan detail dari User 
+        $data['admin'] = $this->User_model->get_admin_details($id_admin);
+
+        // Load view
+        $this->load->view('admin/dashboard', $data, FALSE);
     }
 
     // Log user out
@@ -114,6 +167,10 @@ class Welcome extends CI_Controller {
     }
 // =============================read============================
     public function barang(){
+        if($this->session->userdata('level') == 2){
+            $this->session->set_flashdata('msg_level','Member tidak dapat melakukan tambah artikel');
+            redirect('welcome','refresh');
+        }
 
         $limit_per_page = 6;
 
@@ -139,14 +196,8 @@ class Welcome extends CI_Controller {
             $data["links"] = $this->pagination->create_links();
         }
         // $data['Barang'] = $this->Gudang_model->get_barang();//ambil data dari Model
-        
         $this->load->view('admin/barang', $data);
     }
-
-
-
-
-
 
 
     public function viewadmin(){
@@ -303,7 +354,8 @@ class Welcome extends CI_Controller {
                             'id_ukuran' => $this->input->post('id_ukuran'),
                             'id_admin' => $this->input->post('id_admin'),
                             'tgl_masuk' => $this->input->post('tgl_masuk'),
-                            'Gambar'=>$this->upload->data('file_name')
+                            'Gambar'=>$this->upload->data('file_name'),
+                            
                         );
                         if( empty($data['upload_error']) ) {
                 $this->Gudang_model->insert_barang($post_data);
@@ -586,6 +638,7 @@ class Welcome extends CI_Controller {
     }
 // =============================read============================
     public function readbarang(){
+
         $limit_per_page = 6;
 
         // URI segment untuk mendeteksi "halaman ke berapa" dari URL

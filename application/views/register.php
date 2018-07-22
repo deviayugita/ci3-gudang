@@ -56,6 +56,19 @@
                             <span class="input-group-addon" id="basic-addon1">Konfirmasi Password</span>
                             <input class="form-control" type="password" name="password2"  placeholder="Konfirmasi Password" required>
                           </div><br>
+
+                          <div class="form-group">
+                            <label for="">Pilih Paket Member :</label>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="membership" id="goldmember" value="2" checked>
+                            <label class="form-check-label" for="goldmember">Distributor</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="membership" id="silvermember" value="3">
+                            <label class="form-check-label" for="silvermember">Suplier</label>
+                        </div>
+                      </div>
+
                         </div>
 
                     

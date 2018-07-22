@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tabelbarang extends CI_Controller {
 
+
+
+
+	
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -19,12 +24,22 @@ class Tabelbarang extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	 public function __construct()
-	 	{
-	 		parent::__construct();
-			$this->load->helper('url');
-	 		$this->load->model('Barang_model');
-	 	}
+	public function __construct()
+	{
+		//Membuat kelas parent agar bisa digunakan di semua fungsi
+		parent::__construct();
+		//Load model dan helper
+		$this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper('text');
+        
+		$this->load->model('Gudang_model');
+        $this->load->model('Barang_model');
+        $this->load->model('Kategori_model');
+        $this->load->model('Admin_model');
+		$this->load->helper(array('url_helper','date','file'));
+		date_default_timezone_set('Asia/Jakarta');
+	}
 
 
 	public function index()
@@ -33,6 +48,8 @@ class Tabelbarang extends CI_Controller {
 		$data['barang']=$this->Barang_model->get_all_barang();
 		$this->load->view('admin/tabelbarang',$data);
 	}
+
+
 	public function tabelbarang_add()
 		{
 			$data = array(
@@ -82,5 +99,29 @@ class Tabelbarang extends CI_Controller {
 	}
 
 
+// new
+// =========================transaksi====================================
+    public function transaksi(){
+        $id_barang = $this->uri->segment(3);
+        $data['Barang_list']=$this->Gudang_model->get_qty($id_barang);
+        if(empty($data['Barang_list'])){
+            show_404();
+        }
+        $this->load->view('admin/transaksi',$data);
+    }
+
+    public function tambah_jumlah($id = NULL){
+    	$jumlah_brg = $this->input->post('jumlah_brg') + $this->input->post('jumlah');
+    	$this->Gudang_model->add_barang($jumlah_brg);
+
+        // $post_data = array(
+        //         'jumlah' => $this->input->post('jumlah'),
+        //     );
+
+        //         if($this->Barang_model->tambah_qty($post_data, $id)){
+        //         redirect('Tabelbaran', $data);
+        //        } 
+    }
+// wes
 
 }

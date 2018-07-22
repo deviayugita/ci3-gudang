@@ -13,7 +13,8 @@
 
   <div class="gtco-section gtco-gray-bg">
     <div class="gtco-container">
-      <?php echo form_open('Welcome/login'); ?>
+      <?php echo form_open('Welcome/login'); ?> 
+      <!-- <?php echo form_open_multipart(current_url()); ?> -->
       <div class="row">
         <div class="col-md-12"><form>
                 <div class="row">

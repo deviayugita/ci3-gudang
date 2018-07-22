@@ -5,36 +5,33 @@
     <div class="gtco-container">
       <div class="row row-mt-15em">
         <div class="col-md-7 mt-text text-left animate-box" data-animate-effect="fadeInUp">
-          <h1>Tambahkan <strong>Admin</strong></h1> 
-          <h2>inputkan data secara lengkap.</h2>
-        </div>
+          <h1>Tambahkan <strong>Quantity</strong></h1>
+          
       </div>
     </div>
   </header>
 
   <div class="gtco-section gtco-gray-bg">
     <div class="gtco-container">
-    <?php echo form_open_multipart('welcome/insert_admin', array('class' => 'needs-validation', 'novalidate' => ''));?>
-    <?php echo validation_errors(); ?>
-                    <?php echo (isset( $upload_error)) ? '<div class="alert alert-warning" role="alert">' .$upload_error. '</div>' : ''; ?>
+   
       <div class="row">
-        <div class="col-md-12"><form>
+        <div class="col-md-12">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
+                <?=form_open('Tabelbarang/tambah_jumlah') ?>
+                <h1>Detail <strong><?php echo $Barang_list['nama']  ?></strong></h1> 
+                  
                 <p>
-                <input type="text" class="form-control ins" name="nama_admin" placeholder="nama" value="<?php echo set_value('nama_admin')?>"></p>
-                <p class="help-block text-danger"></p>
-                <p>
-                <input type="text" class="form-control ins" name="alamat" placeholder="alamat" value="<?php echo set_value('alamat')?>"></p>
-                <p class="help-block text-danger"></p>
-                <p>
-                <input type="text" class="form-control ins" name="no_telp" placeholder="no_telp" value="<?php echo set_value('no_telp')?>"></p>
+                <input type="hidden" name="id_barang" value="<?php echo $Barang_list['id_barang']  ?>">
+                <input type="hidden" name="jumlah_brg" value="<?php echo $Barang_list['jumlah']  ?>">
+                <input type="text" class="form-control ins" name="jumlah" placeholder="Tambah Quantity" value="<?php echo set_value('jumlah')?>"></p>
                 <p class="help-block text-danger"></p>
 
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
+                <?=form_close()?>
               </div>
             </div>
           </div></form>
@@ -43,5 +40,5 @@
     </div>
   </div>
 <?php 
-echo form_close();
+
 $this->load->view('footer');?> 

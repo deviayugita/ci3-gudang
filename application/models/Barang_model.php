@@ -62,6 +62,15 @@ class Barang_model extends CI_Model
 	}
 
 
+	// public function tambah_qty($data, $id) 
+ //    {
+ //        if ( !empty($data) && !empty($id) ){
+ //            $update = $this->db->update( 'barang', $data, array('id_barang'=>$id) );
+ //            return $update ? true : false;
+ //        } else {
+ //            return false;
+ //        }
+ //    }
 
 }
 
