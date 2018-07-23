@@ -53,17 +53,15 @@
                           <div class="form-group">
                             <label for="">Pilih Paket Member :</label>
                             <div class="form-check">
-                            <input class="form-check-input" type="radio" name="membership" id="goldmember" value="2" checked>
-                            <label class="form-check-label" for="goldmember">Distributor</label>
+                            <input class="form-check-input" type="radio" name="membership" id="suplier" value="3" checked>
+                            <label class="form-check-label" for="suplier">Suplier</label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="membership" id="silvermember" value="3">
-                            <label class="form-check-label" for="silvermember">Suplier</label>
+                            <input class="form-check-input" type="radio" name="membership" id="distributor" value="4">
+                            <label class="form-check-label" for="distributor">Distributor</label>
                            </div>
                           </div>
 
-
-                    
                            <div class="clearfix"></div>
                           <div id="success"></div>
                           <center>

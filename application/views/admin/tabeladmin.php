@@ -32,6 +32,7 @@
           <th>Nama Admin</th>
           <th>Alamat</th>
           <th>No Telepon </th>
+          <th>Level </th>
           <!-- <th>Book Category</th> -->
 
           <th style="width:125px;">Action
@@ -45,9 +46,11 @@
                  <td><?php echo $tabeladmin->nama_admin;?></td>
                  <td><?php echo $tabeladmin->alamat;?></td>
                 <td><?php echo $tabeladmin->no_telp;?></td>
+                <td><?php echo $tabeladmin->nama_level;?></td>
                
                 <td>
-                  <button class="btn btn-warning" onclick="edit_tabeladmin(<?php echo $tabeladmin->id_admin;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <!-- <button class="btn btn-warning" onclick="edit_tabeladmin(<?php echo $tabeladmin->id_admin;?>)"><i class="glyphicon glyphicon-pencil"></i></button> -->
+                  <a href="<?php echo base_url('Welcome/edit_admin/').$tabeladmin->id_admin ?>" button class="btn btn-warning"> <i class="glyphicon glyphicon-pencil"></i></button> </a> 
                   <button class="btn btn-danger" onclick="delete_tabeladmin(<?php echo $tabeladmin->id_admin;?>)"><i class="glyphicon glyphicon-remove"></i></button>
 
 

@@ -132,7 +132,7 @@
 							<?php if($this->session->userdata('level') == 2) : ?>
 							<li class="">
 								<li class="has-dropdown">
-									<a href="<?php echo site_url('Tabelbarang/')?>">Input</a>
+									<a href="<?php echo site_url('Tabelbarang/tambahbarang')?>">Input</a>
 							</li>
 							<?php endif; ?>
 
@@ -146,6 +146,7 @@
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabelkategori/')?>">Kategori</a></li>
 
 											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabeladmin/')?>">Admin</a></li>
+											<li><a class="nav-link js-scroll-trigger" href="<?php echo site_url('Tabeluser/')?>">User</a></li>
 										</ul>
 								</li>
 							</li>

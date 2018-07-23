@@ -20,6 +20,7 @@ public function get_all_admin($limit = FALSE, $offset = FALSE)
             $this->db->limit($limit, $offset);
         }
         $this->db->order_by('admin.id_admin', 'DESC');
+        $this->db->join('level', 'level.id_level = admin.fk_id_level');
 	$this->db->from('admin');
 	$query=$this->db->get();
 	return $query->result();

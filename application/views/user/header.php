@@ -147,7 +147,8 @@
 	</div>
 
 	<?php if($this->session->flashdata('user_registered')): ?>
-          <?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?>
+		<?php echo "<script>alert('".$this->session->flashdata('user_registered')."')</script>"; ?>
+          <!-- <?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?> -->
         <?php endif; ?>
         <?php if($this->session->flashdata('login_failed')): ?>
           <?php echo "<script>alert('".$this->session->flashdata('login_failed')."')</script>"; ?>

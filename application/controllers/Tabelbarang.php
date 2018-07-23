@@ -46,7 +46,16 @@ class Tabelbarang extends CI_Controller {
 	{
 
 		$data['barang']=$this->Barang_model->get_all_barang();
+		// $data['barang']=$this->Barang_model->get_admin();
 		$this->load->view('admin/tabelbarang',$data);
+	}
+
+		public function tambahbarang()
+	{
+
+		$data['barang']=$this->Barang_model->get_all_barang();
+		// $data['barang']=$this->Barang_model->get_admin();
+		$this->load->view('admin/barangmasuk',$data);
 	}
 
 
@@ -54,6 +63,8 @@ class Tabelbarang extends CI_Controller {
 	{
 
 		$data['barang']=$this->Barang_model->get_all_barang();
+		
+		// $data['barang']=$this->Barang_model->get_ukuran();
 		$this->load->view('user/barang',$data);
 	}
 

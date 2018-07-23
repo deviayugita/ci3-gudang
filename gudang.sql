@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2018 at 03:00 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Generation Time: 23 Jul 2018 pada 10.17
+-- Versi Server: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -39,7 +37,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `fk_id_level`, `nama_admin`, `alamat`, `no_telp`, `usr`, `psw`) VALUES
@@ -54,7 +52,7 @@ INSERT INTO `admin` (`id_admin`, `fk_id_level`, `nama_admin`, `alamat`, `no_telp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -70,22 +68,20 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama`, `id_kategori`, `harga`, `jumlah`, `id_admin`, `id_ukuran`, `tgl_masuk`, `Gambar`) VALUES
 (1, 'cutete', 2, '180000', '35', 3, 1, '2018-05-03', ''),
 (2, 'abc', 2, '50000', '35', 4, 2, '2018-05-16', ''),
-(3, 'qwerty', 1, '100000', '38', 4, 3, '2018-05-08', ''),
-(4, 'zxc', 1, '20000000', '40', 8, 4, '2018-05-02', ''),
+(3, 'qwerty', 1, '100000', '41', 4, 3, '2018-05-08', ''),
 (5, 'blaa', 2, '400000000', '50', 8, 5, '2018-05-09', ''),
-(6, 'aaa', 1, '4000000', '50', 5, 1, '2018-05-08', ''),
-(7, 'asd', 2, '3000000', '45', 5, 1, '2018-05-22', '');
+(6, 'aaa', 1, '4000000', '50', 5, 1, '2018-05-08', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -94,7 +90,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -102,14 +98,12 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 (2, 'jaket'),
 (4, 'cardigan'),
 (5, 'a'),
-(6, 'b'),
-(7, 'c'),
-(8, 'd');
+(6, 'b');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -118,7 +112,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id_level`, `nama_level`) VALUES
@@ -130,7 +124,7 @@ INSERT INTO `level` (`id_level`, `nama_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ukuran`
+-- Struktur dari tabel `ukuran`
 --
 
 CREATE TABLE `ukuran` (
@@ -139,7 +133,7 @@ CREATE TABLE `ukuran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ukuran`
+-- Dumping data untuk tabel `ukuran`
 --
 
 INSERT INTO `ukuran` (`id_ukuran`, `nama_ukuran`) VALUES
@@ -152,7 +146,7 @@ INSERT INTO `ukuran` (`id_ukuran`, `nama_ukuran`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -168,7 +162,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `fk_id_level`, `nama`, `alamat`, `email`, `no_tlp`, `username`, `password`, `tanggal`) VALUES
@@ -176,7 +170,11 @@ INSERT INTO `user` (`id_user`, `fk_id_level`, `nama`, `alamat`, `email`, `no_tlp
 (2, 4, 'bbb', 'suhat', 'bbb@gmail.com', '12345', 'bbb', '08f8e0260c64418510cefb2b06eee5cd', '2018-07-11 15:01:04'),
 (3, 3, 'ccc', 'malang', 'ccc', '22222', 'ccc', '9df62e693988eb4e1e1444ece0578579', '2018-07-11 15:03:55'),
 (4, 3, 'devi ayu gita', 'ytr', 'deviayugitaa@gmail.com', '32222', 'devi', 'f5c2db1f19bdde37e740e86b70d0534f', '2018-07-22 10:22:38'),
-(5, 3, 'ayu', 'aaa', 'de@gmail.com', '324', 'ayu', '29c65f781a1068a41f735e1b092546de', '2018-07-22 12:17:54');
+(5, 3, 'ayu', 'aaa', 'de@gmail.com', '324', 'ayu', '29c65f781a1068a41f735e1b092546de', '2018-07-22 12:17:54'),
+(6, 4, 'Hasna Alifira', 'Bunul', 'hasna@gmail.com', '098765443', 'hasna', 'b83ba8dc98c5fee2a3e5906752d48e31', '2018-07-22 23:57:02'),
+(7, 3, 'Rifda N', 'rampal', 'rifda@gmail.com', '090909090', 'rifda', '023202291aa9f07a75b25dab06d643e9', '2018-07-23 00:28:42'),
+(8, 4, 'fira', 'hamid rusdi', 'fira@gmail.com', '12321', 'fira', 'd57d8d5422365e4295153b987f907c5e', '2018-07-23 00:32:03'),
+(9, 4, 'isna', 'gadang', 'isna@gmail.com', '11344', 'isna', '3d1c3481dd9ce3d7e31f3bee188cee35', '2018-07-23 00:36:59');
 
 --
 -- Indexes for dumped tables
@@ -256,30 +254,29 @@ ALTER TABLE `ukuran`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `admin`
+-- Ketidakleluasaan untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `fk_admin_id_level` FOREIGN KEY (`fk_id_level`) REFERENCES `level` (`id_level`);
 
 --
--- Constraints for table `barang`
+-- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
   ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_id_level` FOREIGN KEY (`fk_id_level`) REFERENCES `level` (`id_level`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

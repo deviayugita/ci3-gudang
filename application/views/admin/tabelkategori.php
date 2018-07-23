@@ -43,7 +43,11 @@
                  <td><?php echo $tabelkategori->nama_kategori;?></td>
                
                 <td>
-                  <button class="btn btn-warning" onclick="edit_tabelkategori(<?php echo $tabelkategori->id_kategori;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <!-- <a herf ="<?php echo base_url('tabelkategori/edit/').$tabelkategori->id_kategori ?>">
+                  <button class="btn btn-warning"> <i class="glyphicon glyphicon-pencil"></i></button></a> -->
+
+<a href="<?php echo base_url('Welcome/edit_kategori/').$tabelkategori->id_kategori ?>" button class="btn btn-warning"> <i class="glyphicon glyphicon-pencil"></i></button> </a> 
+
                   <button class="btn btn-danger" onclick="delete_tabelkategori(<?php echo $tabelkategori->id_kategori;?>)"><i class="glyphicon glyphicon-remove"></i></button>
 
 
@@ -87,7 +91,7 @@
 
       //Ajax Load data from ajax
       $.ajax({
-        url : "<?php echo site_url('index.php/tabelkategori/tabelkategori_edit/')?>/" + id_kategori,
+        url : "<?php echo site_url('index.php/Tabelkategori/tabelkategori_update/')?>/" + id_kategori,
         type: "GET",
         dataType: "JSON",
         success: function(data)

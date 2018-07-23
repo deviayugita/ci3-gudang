@@ -22,11 +22,14 @@ class Barang_model extends CI_Model
         $this->db->order_by('barang.tgl_masuk', 'DESC');
 
         $this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori');
+        $this->db->join('admin', 'admin.id_admin = barang.id_admin');
+        $this->db->join('ukuran', 'ukuran.id_ukuran = barang.id_ukuran');
 		
 		$this->db->from('barang');
 		$query=$this->db->get();
 		return $query->result();
 	}
+
 
 	public function get_total() 
     {

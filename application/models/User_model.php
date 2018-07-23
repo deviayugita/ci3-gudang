@@ -4,6 +4,7 @@ class User_model extends CI_Model {
 
     function __construct(){
         parent::__construct();
+        $this->load->database();
     }
 
     public function register($enc_password){
@@ -113,5 +114,71 @@ class User_model extends CI_Model {
             return false;
         }
     }
+
+
+// /////////////////////////////tabeluser/////////////////////////////////////////
+
+    public function get_all_user($limit = FALSE, $offset = FALSE)
+{
+    if ( $limit ) {
+            $this->db->limit($limit, $offset);
+        }
+        $this->db->order_by('user.id_user', 'DESC');
+        $this->db->join('level', 'level.id_level = user.fk_id_level');
+        // $this->db->join('user', 'user.id_user = user.fk_id_level');
+    $this->db->from('user');
+    $query=$this->db->get();
+    return $query->result();
+}
+    
+    public function get_total() 
+    {
+        return $this->db->count_all("user");
+    }
+
+
+    public function get_by_id($id_user)
+    {
+        $this->db->from($this->table);
+        $this->db->where('id_user',$id_user);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+    public function tabeluser_add($data)
+    {
+        $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
+    }
+
+    public function tabeluser_update($where, $data)
+    {
+        $this->db->update($this->table, $data, $where);
+        return $this->db->affected_rows();
+    }
+
+    public function get_user_by_id($id)
+    {
+        $query = $this->db->get_where('user', array('id_user' => $id));
+        return $query->row_array();
+    }
+
+    public function update_user($data, $id) 
+    {
+        if ( !empty($data) && !empty($id) ){
+            $update = $this->db->update( 'user', $data, array('id_user'=>$id) );
+            return $update ? true : false;
+        } else {
+            return false;
+        }
+    }
+
+    public function delete_by_id($id_user)
+    {
+        $this->db->where('id_user', $id_user);
+        $this->db->delete($this->table);
+    }
+
 
 }

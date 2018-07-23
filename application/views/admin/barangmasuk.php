@@ -40,7 +40,7 @@
           <th>Tanggal masuk</th>
           <th>Gambar</th>
           <!-- <th>Book Category</th> -->
-          <th style="width:125px;">Action</th>
+          <!-- <th style="width:125px;">Action</th> -->
 
           <!-- <new> -->
             <th>Tambah</th>
@@ -60,11 +60,11 @@
                  <td><?php echo $tabelbarang->nama_ukuran;?></td>
                  <td><?php echo $tabelbarang->tgl_masuk;?></td>
                   <td><?php echo $tabelbarang->Gambar;?></td>
-                <td>
-                  <!-- <button class="btn btn-warning" onclick="edit_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-pencil"></i></button> -->
+<!--                 <td>
+                  <button class="btn btn-warning" onclick="edit_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
                   <a href="<?php echo base_url('Welcome/edit_barang/').$tabelbarang->id_barang ?>" button class="btn btn-warning"> <i class="glyphicon glyphicon-pencil"></i></button> </a>
                   <button class="btn btn-danger" onclick="delete_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-remove"></i></button>
-                </td>
+                </td> -->
 
                 <!-- new -->
                 <td>

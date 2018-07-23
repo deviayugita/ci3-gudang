@@ -32,11 +32,10 @@
         <tr>
          <th>Id Barang</th>
           <th>Nama</th>
-          <th>ID Kategori</th>
+          <th>Kategori</th>
           <th>Harga</th>
           <th>Jumlah</th>
-          <th>ID admin</th>
-          <th>ID Ukuran</th>
+          <th>Ukuran</th>
           <th>Tanggal masuk</th>
           <th>Gambar</th>
 
@@ -47,11 +46,10 @@
              <tr>
                  <td><?php echo $tabelbarang->id_barang;?></td>
                  <td><?php echo $tabelbarang->nama;?></td>
-                 <td><?php echo $tabelbarang->id_kategori;?></td>
+                 <td><?php echo $tabelbarang->nama_kategori;?></td>
                  <td><?php echo $tabelbarang->harga;?></td>
                  <td><?php echo $tabelbarang->jumlah;?></td>
-                 <td><?php echo $tabelbarang->id_admin;?></td>
-                 <td><?php echo $tabelbarang->id_ukuran;?></td>
+                 <td><?php echo $tabelbarang->nama_ukuran;?></td>
                  <td><?php echo $tabelbarang->tgl_masuk;?></td>
                   <td><?php echo $tabelbarang->Gambar;?></td>
 

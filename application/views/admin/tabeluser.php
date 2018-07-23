@@ -2,8 +2,7 @@
 <html>
 <?php $this->load->view('admin/header');?> 
 <header>
-<br>
-<br><br>
+  <br><br><br>
   </header>
 
   <!-- ..........BATAS SUCI............... -->
@@ -11,67 +10,52 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data barang</title>
+    <title>Data user</title>
     <link href="<?php echo base_url('assests/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assests/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
   </head>
   <body>
- 
+
 
   <div class="container">
-
     <!-- <h1>Data Atasan</h1> -->
 </center>
     <br />
    <!--  <button class="btn btn-success" onclick="add_atasantable()"><i class="glyphicon glyphicon-plus"></i> Add Data Atasan</button> -->
     <br />
     <br />
-<h2 class="text-center">DATA BARANG</h2>
+    <h2 class="text-center">DATA USER</h2>
     <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
-         <th>Id Barang</th>
-          <th>Nama</th>
-          <th>Kategori</th>
-          <th>Harga</th>
-          <th>Jumlah</th>
-          <th>Admin</th>
-          <th>Ukuran</th>
-          <th>Tanggal masuk</th>
-          <th>Gambar</th>
+         <th>Id user</th>
+          <th>Nama user</th>
+          <th>Alamat</th>
+          <th>Email</th>
+          <th>No Telepon </th>
+          <th>Level </th>
           <!-- <th>Book Category</th> -->
-          <th style="width:125px;">Action</th>
 
-          <!-- <new> -->
-            <th>Tambah</th>
-            <!-- <wes> -->
-
+          <!-- <th style="width:125px;">Action
+          </p></th> -->
         </tr>
       </thead>
       <tbody>
-        <?php foreach($barang as $tabelbarang){?>
+        <?php foreach($user as $tabeluser){?>
              <tr>
-                 <td><?php echo $tabelbarang->id_barang;?></td>
-                 <td><?php echo $tabelbarang->nama;?></td>
-                 <td><?php echo $tabelbarang->nama_kategori;?></td>
-                 <td><?php echo $tabelbarang->harga;?></td>
-                 <td><?php echo $tabelbarang->jumlah;?></td>
-                 <td><?php echo $tabelbarang->nama_admin;?></td>
-                 <td><?php echo $tabelbarang->nama_ukuran;?></td>
-                 <td><?php echo $tabelbarang->tgl_masuk;?></td>
-                  <td><?php echo $tabelbarang->Gambar;?></td>
-                <td>
-                  <!-- <button class="btn btn-warning" onclick="edit_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-pencil"></i></button> -->
-                  <a href="<?php echo base_url('Welcome/edit_barang/').$tabelbarang->id_barang ?>" button class="btn btn-warning"> <i class="glyphicon glyphicon-pencil"></i></button> </a>
-                  <button class="btn btn-danger" onclick="delete_tabelbarang(<?php echo $tabelbarang->id_barang;?>)"><i class="glyphicon glyphicon-remove"></i></button>
-                </td>
+                 <td><?php echo $tabeluser->id_user;?></td>
+                 <td><?php echo $tabeluser->nama;?></td>
+                 <td><?php echo $tabeluser->alamat;?></td>
+                 <td><?php echo $tabeluser->email;?></td>
+                <td><?php echo $tabeluser->no_tlp;?></td>
+                <td><?php echo $tabeluser->nama_level;?></td>
+               
+<!--                 <td>
+                  <button class="btn btn-warning" onclick="edit_tabeluser(<?php echo $tabeluser->id_user;?>)"><i class="glyphicon glyphicon-pencil"></i></button>
+                  <button class="btn btn-danger" onclick="delete_tabeluser(<?php echo $tabeluser->id_user;?>)"><i class="glyphicon glyphicon-remove"></i></button>
 
-                <!-- new -->
-                <td>
-                  <a href="<?php echo site_url('Tabelbarang/transaksi/'.$tabelbarang->id_barang)?>"><button class="btn btn-primary">Tambah</button></a>
-                </td>
-                <!-- wes -->
 
+                </td> -->
               </tr>
              <?php }?>
 
@@ -96,7 +80,7 @@
     var table;
 
 
-    function add_tabelbarang()
+    function add_tabeluser()
     {
       save_method = 'add';
       $('#form')[0].reset(); // reset form on modals
@@ -104,28 +88,24 @@
     //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
     }
 
-    function edit_tabelbarang(id_barang)
+    function edit_tabeluser(id_user)
     {
       save_method = 'update';
       $('#form')[0].reset(); // reset form on modals
 
       //Ajax Load data from ajax
       $.ajax({
-        url : "<?php echo site_url('index.php/tabelbarang/tabelbarang_edit/')?>/" + id_barang,
+        url : "<?php echo site_url('index.php/tabeluser/tabeluser_edit/')?>/" + id_user,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id_barang"]').val(data.id_barang);
-            $('[name="nama"]').val(data.nama);
-            $('[name="id_kategori"]').val(data.id_kategori);
-            $('[name="harga"]').val(data.harga);
-            $('[name="jumlah"]').val(data.jumlah);
-            $('[name="nama_admin"]').val(data.nama_admin);
-            $('[name="id_ukuran"]').val(data.id_ukuran);
-            $('[name="tgl_masuk"]').val(data.tgl_masuk);
-            $('[name="Gambar"]').val(data.Gambar);
+            $('[name="id_user"]').val(data.id_user);
+            $('[name="nama_user"]').val(data.nama_user);
+            $('[name="alamat"]').val(data.alamat);
+            $('[name="no_telp"]').val(data.no_telp);
+       
           
 
 
@@ -147,11 +127,11 @@
       var url;
       if(save_method == 'add')
       {
-          url = "<?php echo site_url('index.php/tabelbarang/tabelbarang_add')?>";
+          url = "<?php echo site_url('index.php/tabeluser/tabeluser_add')?>";
       }
       else
       {
-        url = "<?php echo site_url('index.php/tabelbarang/tabelbarang_update')?>";
+        url = "<?php echo site_url('index.php/tabeluser/tabeluser_update')?>";
       }
 
        // ajax adding data to database
@@ -173,13 +153,13 @@
         });
     }
 
-    function delete_tabelbarang(id_barang)
+    function delete_tabeluser(id_user)
     {
       if(confirm('Are you sure delete this data?'))
       {
         // ajax delete data from database
           $.ajax({
-            url : "<?php echo site_url('index.php/tabelbarang/tabelbarang_delete')?>/"+id_barang,
+            url : "<?php echo site_url('index.php/tabeluser/tabeluser_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -204,64 +184,40 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Form Data barang</h3>
+        <h3 class="modal-title">Form Data user</h3>
       </div>
       <div class="modal-body form">
         <form action="#" id="form" class="form-horizontal">
-          <input type="hidden" value="" name="id_admin"/>
+          <input type="hidden" value="" name="id_user"/>
           <div class="form-body">
             <div class="form-group">
-              <label class="control-label col-md-3">ID barang</label>
+              <label class="control-label col-md-3">ID user</label>
               <div class="col-md-9">
-                <input name="id_barang" placeholder="id_barang" class="form-control" type="text">
+                <input name="id_user" placeholder="id_user" class="form-control" type="text">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Nama</label>
+              <label class="control-label col-md-3">Nama user</label>
               <div class="col-md-9">
-                <input name="nama" placeholder="nama" class="form-control" type="text">
+                <input name="nama_user" placeholder="nama" class="form-control" type="text">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">ID Kategori</label>
+              <label class="control-label col-md-3">Alamat</label>
               <div class="col-md-9">
-                <input name="id_kategori" placeholder="id_kategori" class="form-control" type="text">
+                <input name="alamat" placeholder="alamat" class="form-control" type="text">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Harga</label>
+              <label class="control-label col-md-3">Email</label>
               <div class="col-md-9">
-                <input name="harga" placeholder="harga" class="form-control" type="text">
+                <input name="alamat" placeholder="email" class="form-control" type="email">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">jumlah</label>
+              <label class="control-label col-md-3">NO telepon</label>
               <div class="col-md-9">
-                <input name="jumlah" placeholder="jumlah" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">ID Admin</label>
-              <div class="col-md-9">
-                <input name="id_admin" placeholder="id_admin" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Ukuran</label>
-              <div class="col-md-9">
-                <input name="id_ukuran" placeholder="ukuran" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Tanggal masuk</label>
-              <div class="col-md-9">
-                <input name="tgl_masuk" placeholder="tgl_masuk" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Gambar</label>
-              <div class="col-md-9">
-                <input name="Gambar" placeholder="Gambar" class="form-control" type="text">
+                <input name="no_telp" placeholder="no_telp" class="form-control" type="text">
               </div>
             </div>
 

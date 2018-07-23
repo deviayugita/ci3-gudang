@@ -41,6 +41,7 @@ class Welcome extends CI_Controller {
     public function register(){
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]');
         $this->form_validation->set_rules('email', 'Email', 'required|is_unique[user.email]');
         $this->form_validation->set_rules('no_tlp', 'No_tlp', 'required|is_unique[user.no_tlp]');
@@ -359,7 +360,7 @@ class Welcome extends CI_Controller {
                         );
                         if( empty($data['upload_error']) ) {
                 $this->Gudang_model->insert_barang($post_data);
-                redirect('Welcome/barang');
+                redirect('Welcome/dashboard_admin');
             
                 }
         }
@@ -418,7 +419,7 @@ class Welcome extends CI_Controller {
                             'no_telp'=>$this->input->post('no_telp')
                         );
                         $this->Gudang_model->insert_admin($data);
-                        redirect('Welcome/viewadmin');
+                        redirect('Welcome/dashboard_admin');
             
         }
     }
@@ -506,7 +507,7 @@ class Welcome extends CI_Controller {
             if( empty($data['upload_error']) ) {
 
                 $this->Gudang_model->update_barang($post_data, $id);
-                redirect('Welcome/barang');
+                redirect('Welcome/dashboard_admin');
             }
         }
     }
@@ -536,7 +537,7 @@ class Welcome extends CI_Controller {
             );
 
                 if($this->Kategori_model->update_kategori($post_data, $id)){
-                redirect('welcome/kategori', $data);
+                redirect('welcome/dashboard_admin', $data);
             }
             }
         
@@ -571,7 +572,7 @@ class Welcome extends CI_Controller {
             );
 
                 if($this->Admin_model->update_admin($post_data, $id)){
-                redirect('welcome/viewadmin');
+                redirect('welcome/dashboard_admin');
             }
             }
         
@@ -597,7 +598,7 @@ class Welcome extends CI_Controller {
      public function delete_kategori(){
             $id_kategori = $this->uri->segment(3);
             $this->Gudang_model->hapus_kategori($id_kategori);
-            redirect('Welcome/kategori','refresh');
+            redirect('Welcome/dashboard_admin','refresh');
         }
 
 
