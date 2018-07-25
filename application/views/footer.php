@@ -4,7 +4,7 @@
 				<div class="col-md-12">
 					<p class="pull-left">
 						<small class="block">&copy; 2018 Group3-MI2C</small> 
-						<small class="block">Designed by <a href="http://GetTemplates.co/" target="_blank">GetTemplates.co</a> Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small>
+						<!-- <small class="block">Designed by <a href="http://GetTemplates.co/" target="_blank">GetTemplates.co</a> Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small> -->
 					</p>
 					<p class="pull-right">
 						<ul class="gtco-social-icons pull-right">

@@ -302,16 +302,24 @@ class Welcome extends CI_Controller {
                 'required'      => ' %s di isi yaa',
                 'is_unique'     =>  'nama'.$this->input->post('nama').'sudah di isi'));
 
-        $this->form_validation->set_rules('kategori','kategori','required',
-            array('required'      => ' %s di isi yaa'));
+        $this->form_validation->set_rules('kategori','kategori');
+
+        // $this->form_validation->set_rules('kategori','kategori','required',
+        //     array('required'      => ' %s di isi yaa'));
         $this->form_validation->set_rules('harga','harga','required',
             array('required'      => ' %s di isi yaa'));
         $this->form_validation->set_rules('jumlah','jumlah','required',
             array('required'      => '%s di isi yaa'));
-        $this->form_validation->set_rules('admin','admin','required',
-            array('required'      => '%s di isi yaa'));
-        $this->form_validation->set_rules('ukuran','ukuran','required',
-            array('required'      => '%s di isi yaa'));
+
+        $this->form_validation->set_rules('admin','admin');
+
+        // $this->form_validation->set_rules('admin','admin','required',
+        //     array('required'      => '%s di isi yaa'));
+
+        $this->form_validation->set_rules('ukuran','ukuran');
+
+        // $this->form_validation->set_rules('ukuran','ukuran','required',
+        //     array('required'      => '%s di isi yaa'));
         $this->form_validation->set_rules('tgl_masuk','tgl_masuk','required',
             array('required'      => '%s di isi yaa'));
 
