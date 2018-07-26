@@ -168,3 +168,17 @@
 			</div>
 		</nav>
 	</div>
+
+        <?php if($this->session->flashdata('login_failed')): ?>
+          <?php echo "<script>alert('".$this->session->flashdata('login_failed')."')</script>"; ?>
+        <?php endif; ?>
+
+        <?php if($this->session->flashdata('user_loggedin')): ?>
+        	<?php echo "<script>alert('".$this->session->flashdata('user_loggedin')."')</script>"; ?>
+          <!-- <?php echo '<div class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</div>'; ?> -->
+        <?php endif; ?>
+
+         <?php if($this->session->flashdata('user_loggedout')): ?>
+         	<?php echo "<script>alert('".$this->session->flashdata('user_loggedout')."')</script>"; ?>
+          <!-- <?php echo '<div class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</div>'; ?> -->
+        <?php endif; ?>
