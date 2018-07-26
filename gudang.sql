@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Jul 2018 pada 10.17
--- Versi Server: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Jul 25, 2018 at 05:05 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +39,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `fk_id_level`, `nama_admin`, `alamat`, `no_telp`, `usr`, `psw`) VALUES
@@ -45,14 +47,12 @@ INSERT INTO `admin` (`id_admin`, `fk_id_level`, `nama_admin`, `alamat`, `no_telp
 (3, 2, 'gita', 'malang', '0879867', 'gita', '4cb6903c6f8b22d7f191aff3e137dbef'),
 (4, 1, 'hasna', 'malang', '09987', 'hasna', '2628e9c4f08c2e18e100958ca5de003d'),
 (5, 2, 'devi', 'malang', '0879867', 'devi', 'f5997f33924a71cfe32cc115d2bc274e'),
-(8, 1, 'isna', 'malang', '08847', 'isna', '3d1c3481dd9ce3d7e31f3bee188cee35'),
-(11, 4, 'ayu', 'tlgm', '089', 'ayu', 'ayu'),
-(12, 3, 'sup', 'shd', '32', 'sup', 'sup');
+(8, 1, 'isna', 'malang', '08847', 'isna', '3d1c3481dd9ce3d7e31f3bee188cee35');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -68,20 +68,35 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama`, `id_kategori`, `harga`, `jumlah`, `id_admin`, `id_ukuran`, `tgl_masuk`, `Gambar`) VALUES
-(1, 'cutete', 2, '180000', '35', 3, 1, '2018-05-03', ''),
-(2, 'abc', 2, '50000', '35', 4, 2, '2018-05-16', ''),
-(3, 'qwerty', 1, '100000', '41', 4, 3, '2018-05-08', ''),
-(5, 'blaa', 2, '400000000', '50', 8, 5, '2018-05-09', ''),
-(6, 'aaa', 1, '4000000', '50', 5, 1, '2018-05-08', '');
+(7, 'flo-shirt navy', 7, '189900', '22', 8, 2, '2018-07-22', 'a1.jpg'),
+(8, 'w-leaves white', 7, '199900', '20', 8, 2, '2018-07-22', 'a21.jpg'),
+(9, 'flo-shirt black', 7, '189900', '15', 8, 1, '2018-07-22', 'a3.jpg'),
+(10, 'pencil jeans navy', 8, '250000', '30', 1, 4, '2018-07-22', 'b1.jpg'),
+(11, 'ripped jeans', 8, '195500', '30', 4, 4, '2018-07-22', 'b7.jpg'),
+(12, 'green mini rok', 9, '138900', '20', 3, 2, '2018-07-22', 'b2.jpg'),
+(13, 'cutie red', 1, '89900', '50', 8, 3, '2018-07-23', 'a4.jpg'),
+(14, 'jogger pants', 10, '300000', '80', 8, 1, '2018-07-23', 'b4.jpg'),
+(15, 'wico skirt', 9, '125000', '45', 5, 3, '2018-07-23', 'b9.jpg'),
+(16, 'kombor jeans', 8, '299900', '20', 4, 4, '2018-07-24', 'b8.JPG'),
+(17, 'ripped width', 8, '300000', '30', 8, 3, '2018-07-24', 'b10.jpg'),
+(18, 'ribbon chest', 7, '189900', '50', 8, 2, '2018-07-24', 'a10.jpg'),
+(19, 'black dress', 11, '199900', '30', 1, 3, '2018-07-24', 'a5.jpg'),
+(20, 'mini cat', 11, '250000', '30', 4, 2, '2018-07-24', 'a8.jpg'),
+(21, 'pink shirt', 7, '150500', '60', 1, 1, '2018-07-24', 'a7.jpg'),
+(22, 'black legging', 10, '199900', '30', 5, 1, '2018-07-24', 'b3.jpg'),
+(23, 'black pencil', 10, '199900', '20', 4, 2, '2018-07-24', 'b5.jpg'),
+(24, 'grey pants', 10, '250000', '50', 8, 4, '2018-07-24', 'b6.jpg'),
+(25, 'crop blue', 7, '199900', '50', 8, 4, '2018-07-24', 'a9.jpg'),
+(26, 'lea dress', 11, '250000', '20', 1, 1, '2018-07-24', 'a6.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -90,20 +105,23 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'kaos'),
 (2, 'jaket'),
 (4, 'cardigan'),
-(5, 'a'),
-(6, 'b');
+(7, 'kemeja'),
+(8, 'jeans'),
+(9, 'rok'),
+(10, 'pants'),
+(11, 'dress');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `level`
+-- Table structure for table `level`
 --
 
 CREATE TABLE `level` (
@@ -112,7 +130,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `level`
+-- Dumping data for table `level`
 --
 
 INSERT INTO `level` (`id_level`, `nama_level`) VALUES
@@ -124,7 +142,7 @@ INSERT INTO `level` (`id_level`, `nama_level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ukuran`
+-- Table structure for table `ukuran`
 --
 
 CREATE TABLE `ukuran` (
@@ -133,7 +151,7 @@ CREATE TABLE `ukuran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ukuran`
+-- Dumping data for table `ukuran`
 --
 
 INSERT INTO `ukuran` (`id_ukuran`, `nama_ukuran`) VALUES
@@ -146,7 +164,7 @@ INSERT INTO `ukuran` (`id_ukuran`, `nama_ukuran`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -162,19 +180,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `fk_id_level`, `nama`, `alamat`, `email`, `no_tlp`, `username`, `password`, `tanggal`) VALUES
-(1, 3, 'aaa', 'jl', 'aaa@gmail.com', '098765', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808', '2018-07-11 14:23:56'),
-(2, 4, 'bbb', 'suhat', 'bbb@gmail.com', '12345', 'bbb', '08f8e0260c64418510cefb2b06eee5cd', '2018-07-11 15:01:04'),
-(3, 3, 'ccc', 'malang', 'ccc', '22222', 'ccc', '9df62e693988eb4e1e1444ece0578579', '2018-07-11 15:03:55'),
 (4, 3, 'devi ayu gita', 'ytr', 'deviayugitaa@gmail.com', '32222', 'devi', 'f5c2db1f19bdde37e740e86b70d0534f', '2018-07-22 10:22:38'),
 (5, 3, 'ayu', 'aaa', 'de@gmail.com', '324', 'ayu', '29c65f781a1068a41f735e1b092546de', '2018-07-22 12:17:54'),
 (6, 4, 'Hasna Alifira', 'Bunul', 'hasna@gmail.com', '098765443', 'hasna', 'b83ba8dc98c5fee2a3e5906752d48e31', '2018-07-22 23:57:02'),
 (7, 3, 'Rifda N', 'rampal', 'rifda@gmail.com', '090909090', 'rifda', '023202291aa9f07a75b25dab06d643e9', '2018-07-23 00:28:42'),
 (8, 4, 'fira', 'hamid rusdi', 'fira@gmail.com', '12321', 'fira', 'd57d8d5422365e4295153b987f907c5e', '2018-07-23 00:32:03'),
-(9, 4, 'isna', 'gadang', 'isna@gmail.com', '11344', 'isna', '3d1c3481dd9ce3d7e31f3bee188cee35', '2018-07-23 00:36:59');
+(9, 4, 'isna', 'gadang', 'isna@gmail.com', '11344', 'isna', '3d1c3481dd9ce3d7e31f3bee188cee35', '2018-07-23 00:36:59'),
+(10, 4, 'mimi', 'gadang', 'mimi123@gmail.com', '03419504620', 'mimi', '202cb962ac59075b964b07152d234b70', '2018-07-24 13:54:02'),
+(11, 3, 'tata', 'blimbing', 'citata_olivia@yahoo.com', '083105518583', 'tata', '49d02d55ad10973b7b9d0dc9eba7fdf0', '2018-07-24 13:56:46');
 
 --
 -- Indexes for dumped tables
@@ -229,54 +246,61 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `ukuran`
 --
 ALTER TABLE `ukuran`
   MODIFY `id_ukuran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `admin`
+-- Constraints for table `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `fk_admin_id_level` FOREIGN KEY (`fk_id_level`) REFERENCES `level` (`id_level`);
 
 --
--- Ketidakleluasaan untuk tabel `barang`
+-- Constraints for table `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
   ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 
 --
--- Ketidakleluasaan untuk tabel `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_id_level` FOREIGN KEY (`fk_id_level`) REFERENCES `level` (`id_level`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
